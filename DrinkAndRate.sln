@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinkAndRate.Models", "DrinkAndRate.Models\DrinkAndRate.Models.csproj", "{A76F5852-45CF-4D5D-A90E-43B77E1DF9B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinkAndRate.Data", "DrinkAndRate.Data\DrinkAndRate.Data.csproj", "{97D1A607-1DAD-447F-9040-F75EBA6C1507}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrinkAndRate.Web", "DrinkAndRate.Web\DrinkAndRate.Web.csproj", "{D9EAFAC6-4293-4921-A030-C9C61DF0444C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A76F5852-45CF-4D5D-A90E-43B77E1DF9B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A76F5852-45CF-4D5D-A90E-43B77E1DF9B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A76F5852-45CF-4D5D-A90E-43B77E1DF9B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A76F5852-45CF-4D5D-A90E-43B77E1DF9B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97D1A607-1DAD-447F-9040-F75EBA6C1507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97D1A607-1DAD-447F-9040-F75EBA6C1507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97D1A607-1DAD-447F-9040-F75EBA6C1507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97D1A607-1DAD-447F-9040-F75EBA6C1507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9EAFAC6-4293-4921-A030-C9C61DF0444C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9EAFAC6-4293-4921-A030-C9C61DF0444C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9EAFAC6-4293-4921-A030-C9C61DF0444C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9EAFAC6-4293-4921-A030-C9C61DF0444C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
