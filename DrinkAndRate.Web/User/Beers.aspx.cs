@@ -2,6 +2,7 @@
 {
     using DrinkAndRate.Data;
     using DrinkAndRate.Web.Models;
+    using DrinkAndRate.Models;
     using System;
     using System.Linq;
     using System.Web.UI;

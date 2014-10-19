@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
-
+    <a href="~/User/BeerCreate" runat="server" class="btn btn-success btn-block">Create</a>
     <div class="row">
         <asp:Repeater ID="RepeaterBeers" runat="server" ItemType="DrinkAndRate.Web.Models.BeerViewModel">
             <ItemTemplate>
