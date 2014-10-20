@@ -9,7 +9,7 @@
         public ListView BeerList
         {
             get;
-            private set;
+            set;
         }
 
         public bool HasPaging { get; set; }
