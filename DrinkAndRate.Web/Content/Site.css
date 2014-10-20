@@ -52,3 +52,10 @@ input[type="select"] {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.beer-outer-box {
+    float:none;
+    display: inline-block;
+    vertical-align: top;
+    width:33.17%;
+}
