@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Beer Create" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BeerCreate.aspx.cs" Inherits="DrinkAndRate.Web.User.BeerCreate" %>
+<%@ Register TagPrefix="uc" TagName="FileUpload" Src="~/Controls/FileUpload.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
@@ -9,7 +10,7 @@
         <div class="form-group">
             <label for="ImageUpload" class="col-lg-2 control-label">Image:</label>
             <div class="col-lg-10">
-                <asp:FileUpload ID="ImageUpload" runat="server" />
+                <uc:FileUpload ID="FileUploadControl" runat="server"/>
             </div>
         </div>
         <asp:Panel runat="server" ID="SelectBrand" Visible="true" CssClass="form-group">

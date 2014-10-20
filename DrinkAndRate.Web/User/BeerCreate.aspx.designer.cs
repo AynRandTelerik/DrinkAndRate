@@ -31,13 +31,13 @@ namespace DrinkAndRate.Web.User {
         protected global::System.Web.UI.WebControls.Label LabelErrorMessage;
         
         /// <summary>
-        /// ImageUpload control.
+        /// FileUploadControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload ImageUpload;
+        protected global::DrinkAndRate.Web.Controls.FileUpload FileUploadControl;
         
         /// <summary>
         /// SelectBrand control.

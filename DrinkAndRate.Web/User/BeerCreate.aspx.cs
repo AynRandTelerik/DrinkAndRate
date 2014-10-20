@@ -3,7 +3,6 @@
     using DrinkAndRate.Data;
     using DrinkAndRate.Models;
     using System;
-    using System.IO;
     using System.Linq;
     using System.Web;
     using System.Web.UI;
@@ -42,7 +41,7 @@
 
                 try
                 {
-                    filePathAndName = FileUpload();
+                    filePathAndName = FileUploadControl.Upload();
                 }
                 catch (InvalidOperationException ex)
                 {
@@ -128,46 +127,6 @@
             var allCategories = this.data.Categories.All().ToList();
             this.Categories.DataSource = allCategories;
             this.Categories.DataBind();
-        }
-
-        private string FileUpload()
-        {
-            //TODO: Finish the method + think to recreate in  control
-            if (ImageUpload.HasFile)
-            {
-
-                if (imageFormats.Any(ImageUpload.PostedFile.ContentType.Contains))
-                {
-                    if (ImageUpload.PostedFile.ContentLength < MAX_FILE_SIZE)
-                    {
-                        var guidName = Guid.NewGuid();
-                        var extension = Path.GetExtension(ImageUpload.FileName);
-
-                        string fileName = string.Format("{0}.{1}", guidName, extension);
-
-                        string path = Server.MapPath("~/App_Data/ImageFiles/");
-                        if (!Directory.Exists(path))
-                        {
-                            Directory.CreateDirectory(path);
-                        }
-
-                        ImageUpload.SaveAs(path + fileName);
-
-                        return "~/App_Data/ImageFiles/" + fileName;
-                    }
-                    else
-                    {
-                        throw new InvalidOperationException("Upload status: The file has to be less than 10 mb!");
-                    }
-                }
-                else
-                {
-                    throw new InvalidOperationException("Upload status: Only JPEG or PNG files are accepted!");
-                }
-
-            }
-
-            return string.Empty;
         }
     }
 }
