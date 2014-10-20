@@ -163,7 +163,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="Resources\Images\default.png" />
+    <Content Include="Images\default.png" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -406,7 +406,9 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\Images\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DrinkAndRate.Data\DrinkAndRate.Data.csproj">
       <Project>{97d1a607-1dad-447f-9040-f75eba6c1507}</Project>

@@ -7,7 +7,7 @@
 
     public partial class FileUpload : System.Web.UI.UserControl
     {
-        private const string DEFAULT_PATH = "~/Resources/Images/";
+        private const string DEFAULT_PATH = "~/Images/";
 
         //5 megabytes
         private const int DEFAULT_MAX_FILE_SIZE = 5 * 1024 * 1024;

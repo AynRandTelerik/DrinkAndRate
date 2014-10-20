@@ -9,7 +9,7 @@
                 <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
                         <a href="<%#: Item.ID %>" title="<%#: Item.Name %>">
-                            <div class="ratio img-rounded" style="background-image: url('<%#: Item.Image!=null? Page.ResolveUrl(Item.Image.Path): "/Resources/Images/default.png" %>')"></div>
+                            <div class="ratio img-rounded" style="background-image: url('<%#: Item.Image!=null? Page.ResolveUrl(Item.Image.Path): "/Images/default.png" %>')"></div>
                         </a>
                         <div class="caption">
                             <h4 class="pull-right">Alco: <%#: Item.AlchoholPercentage!=null? Item.AlchoholPercentage: 0 %>%
