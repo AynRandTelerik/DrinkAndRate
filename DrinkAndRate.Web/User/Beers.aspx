@@ -2,9 +2,13 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
-    <a href="~/User/BeerCreate" runat="server" class="btn btn-success btn-block">Create</a>
     <div class="row">
-        <asp:Repeater ID="RepeaterBeers" runat="server" ItemType="DrinkAndRate.Web.Models.BeerViewModel">
+        <div class="col-md-12">
+            <a id="A1" href="~/User/BeerCreate" runat="server" class="btn btn-success btn-block">Create</a>
+        </div>
+    </div>
+    <div class="row">
+        <asp:ListView ID="ListViewBeers" runat="server" ItemType="DrinkAndRate.Web.Models.BeerViewModel">
             <ItemTemplate>
                 <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
@@ -26,7 +30,7 @@
                                 <%#: Item.Description %>
                             </p>
                         </div>
-                        <div class="pull-right">
+                        <div class="pull-right additional-beer-info">
                             <p>
                                 <span class="glyphicon glyphicon-star"></span>
                                 <span class="glyphicon glyphicon-star"></span>
@@ -38,18 +42,29 @@
                                 <%#: Item.BeerRatings %> reviews
                             </p>
                         </div>
-                        <div>
+                        <div class="additional-beer-info">
                             <p class="truncate">
                                 <%#: "Creator: "+ Item.CreatorName%>
                             </p>
                             <p class="truncate">
                                 <%#: Item.CreatedOn %>
                             </p>
-                            <a href="#/items/{{ item._id }}/edit" class="btn btn-success btn-block">View</a>
                         </div>
+                        <a href="#/items/{{ item._id }}/edit" class="btn btn-success btn-block">View</a>
                     </div>
                 </div>
             </ItemTemplate>
-        </asp:Repeater>
+        </asp:ListView>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6 col-md-offset-3">
+            <asp:DataPager ID="DataPagerBeers" runat="server" PagedControlID="ListViewBeers" PageSize="9" QueryStringField="page">
+                <Fields>
+                    <asp:NextPreviousPagerField ButtonCssClass="btn btn-primary" ShowFirstPageButton="true" ShowNextPageButton="false" ShowPreviousPageButton="false" />
+                    <asp:NumericPagerField CurrentPageLabelCssClass="btn btn-warning" NumericButtonCssClass="btn btn-info" NextPreviousButtonCssClass="btn btn-info"/>
+                    <asp:NextPreviousPagerField ButtonCssClass="btn btn-primary" ShowLastPageButton="true" ShowNextPageButton="false" ShowPreviousPageButton="false" />
+                </Fields>
+            </asp:DataPager>
+        </div>
     </div>
 </asp:Content>

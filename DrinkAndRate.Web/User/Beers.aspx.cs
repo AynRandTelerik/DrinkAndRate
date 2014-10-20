@@ -41,8 +41,8 @@
                 })
                 .ToList();
 
-            this.RepeaterBeers.DataSource = allBeers;
-            this.RepeaterBeers.DataBind();
+            this.ListViewBeers.DataSource = allBeers;
+            this.ListViewBeers.DataBind();
         }
     }
 }
