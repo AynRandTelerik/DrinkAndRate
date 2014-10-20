@@ -23,7 +23,7 @@
             }
         }
 
-        private void LoadData() 
+        private void LoadData()
         {
             var allBeers = data.Beers.All()
                 .Select(x => new BeerViewModel
@@ -41,8 +41,8 @@
                 })
                 .ToList();
 
-            this.ListViewBeers.DataSource = allBeers;
-            this.ListViewBeers.DataBind();
+            this.UserControlBeerGrid.BeerList.DataSource = allBeers;
+            this.UserControlBeerGrid.BeerList.DataBind();
         }
     }
 }

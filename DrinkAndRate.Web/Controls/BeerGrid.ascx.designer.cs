@@ -7,27 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DrinkAndRate.Web.User {
+namespace DrinkAndRate.Web.Controls {
     
     
-    public partial class Beers {
+    public partial class BeerGrid {
         
         /// <summary>
-        /// A1 control.
+        /// ListViewBeers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A1;
+        protected global::System.Web.UI.WebControls.ListView ListViewBeers;
         
         /// <summary>
-        /// UserControlBeerGrid control.
+        /// BeersDataPagingPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DrinkAndRate.Web.Controls.BeerGrid UserControlBeerGrid;
+        protected global::System.Web.UI.WebControls.Panel BeersDataPagingPanel;
+        
+        /// <summary>
+        /// DataPagerBeers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataPager DataPagerBeers;
     }
 }

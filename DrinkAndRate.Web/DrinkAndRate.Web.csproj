@@ -163,6 +163,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Controls\BeerGrid.ascx" />
     <Content Include="Images\default.png" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -348,6 +349,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BeerGrid.ascx.cs">
+      <DependentUpon>BeerGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\BeerGrid.ascx.designer.cs">
+      <DependentUpon>BeerGrid.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\FileUpload.ascx.cs">
       <DependentUpon>FileUpload.ascx</DependentUpon>
