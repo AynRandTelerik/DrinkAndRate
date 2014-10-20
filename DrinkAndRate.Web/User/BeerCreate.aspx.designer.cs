@@ -13,6 +13,24 @@ namespace DrinkAndRate.Web.User {
     public partial class BeerCreate {
         
         /// <summary>
+        /// DivLabelErrorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel DivLabelErrorMessage;
+        
+        /// <summary>
+        /// LabelErrorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelErrorMessage;
+        
+        /// <summary>
         /// ImageUpload control.
         /// </summary>
         /// <remarks>

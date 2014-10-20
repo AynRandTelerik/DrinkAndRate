@@ -32,6 +32,16 @@ namespace DrinkAndRate.Data.Migrations
 
                 context.SaveChanges();
             }
+
+            var hasCategories = context.Categories.Any();
+
+            if (!hasCategories)
+            {
+                context.Categories.AddOrUpdate(
+                    new Category { Name = "Dark" },
+                    new Category { Name = "Light" }
+                );
+            }
         }
     }
 }

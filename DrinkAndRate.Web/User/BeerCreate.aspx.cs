@@ -10,7 +10,7 @@
 
     public partial class BeerCreate : Page
     {
-        private const int MAX_FILE_SIZE = 10240000;
+        private const int MAX_FILE_SIZE = 10485760;
 
         private string[] imageFormats = new string[3] { "image/jpeg", "image/jpg", "image/png" };
 
@@ -38,7 +38,19 @@
         {
             if (Page.IsValid)
             {
-                var filePathAndName = FileUpload();
+                string filePathAndName = string.Empty;
+
+                try
+                {
+                    filePathAndName = FileUpload();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    this.DivLabelErrorMessage.Visible = true;
+                    this.LabelErrorMessage.Text = ex.Message;
+
+                    return;
+                }
 
                 var loggedInUserName = HttpContext.Current.User.Identity.Name;
                 var currentUserId = this.data.Users.All().FirstOrDefault(x => x.UserName == loggedInUserName).Id;
@@ -120,46 +132,39 @@
 
         private string FileUpload()
         {
-            //TODO: Finish the method + think to recreate in control
+            //TODO: Finish the method + think to recreate in  control
             if (ImageUpload.HasFile)
             {
-                try
+
+                if (imageFormats.Any(ImageUpload.PostedFile.ContentType.Contains))
                 {
-                    if (imageFormats.Any(ImageUpload.PostedFile.ContentType.Contains))
+                    if (ImageUpload.PostedFile.ContentLength < MAX_FILE_SIZE)
                     {
-                        if (ImageUpload.PostedFile.ContentLength < MAX_FILE_SIZE)
+                        var guidName = Guid.NewGuid();
+                        var extension = Path.GetExtension(ImageUpload.FileName);
+
+                        string fileName = string.Format("{0}.{1}", guidName, extension);
+
+                        string path = Server.MapPath("~/App_Data/ImageFiles/");
+                        if (!Directory.Exists(path))
                         {
-                            var guidName = Guid.NewGuid();
-                            var extension = Path.GetExtension(ImageUpload.FileName);
-
-                            string fileName = string.Format("{0}.{1}", guidName, extension);
-
-                            string path = Server.MapPath("~/App_Data/ImageFiles/");
-                            if (!Directory.Exists(path))
-                            {
-                                Directory.CreateDirectory(path);
-                            }
-
-                            ImageUpload.SaveAs(path + fileName);
-
-                            return "~/App_Data/ImageFiles/" + fileName;
+                            Directory.CreateDirectory(path);
                         }
-                        else
-                        {
 
-                            //StatusLabel.Text = "Upload status: The file has to be less than 100 kb!";
-                        }
+                        ImageUpload.SaveAs(path + fileName);
+
+                        return "~/App_Data/ImageFiles/" + fileName;
                     }
                     else
                     {
-                        //StatusLabel.Text = "Upload status: Only JPEG files are accepted!";
+                        throw new InvalidOperationException("Upload status: The file has to be less than 10 mb!");
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-
-                    //StatusLabel.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+                    throw new InvalidOperationException("Upload status: Only JPEG or PNG files are accepted!");
                 }
+
             }
 
             return string.Empty;

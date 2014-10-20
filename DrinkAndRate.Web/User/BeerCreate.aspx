@@ -2,6 +2,9 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
+    <asp:Panel ID="DivLabelErrorMessage" runat="server" Visible="false">
+        <asp:Label ID="LabelErrorMessage" runat="server" ClientIDMode="static" CssClass="label label-danger"></asp:Label>
+    </asp:Panel>
     <fieldset class="form-horizontal">
         <div class="form-group">
             <label for="ImageUpload" class="col-lg-2 control-label">Image:</label>
