@@ -3,7 +3,7 @@
 <div class="row">
     <asp:ListView ID="ListViewBeers" runat="server" ItemType="DrinkAndRate.Web.Models.BeerViewModel">
         <ItemTemplate>
-            <div class="col-sm-4 col-lg-4 col-md-4 beer-outer-box">
+            <div class="col-sm-4 col-lg-4 col-md-4">
                 <div class="thumbnail">
                     <a href="<%#: Item.ID %>" title="<%#: Item.Name %>">
                         <div class="ratio img-rounded" style="background-image: url('<%#: Item.Image!=null? Page.ResolveUrl(Item.Image.Path): "/Images/default.png" %>')"></div>
