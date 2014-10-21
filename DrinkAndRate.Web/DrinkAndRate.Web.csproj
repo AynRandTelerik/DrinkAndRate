@@ -211,6 +211,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="User\ArticleCreate.aspx" />
+    <Content Include="User\ArticleDetails.aspx" />
+    <Content Include="User\Articles.aspx" />
     <Content Include="User\BeerCreate.aspx" />
     <Content Include="User\Beers.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -374,6 +377,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ArticleViewModel.cs" />
     <Compile Include="Models\BeerViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -392,6 +396,27 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="User\ArticleCreate.aspx.cs">
+      <DependentUpon>ArticleCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ArticleCreate.aspx.designer.cs">
+      <DependentUpon>ArticleCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\ArticleDetails.aspx.cs">
+      <DependentUpon>ArticleDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ArticleDetails.aspx.designer.cs">
+      <DependentUpon>ArticleDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Articles.aspx.cs">
+      <DependentUpon>Articles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Articles.aspx.designer.cs">
+      <DependentUpon>Articles.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\BeerCreate.aspx.cs">
       <DependentUpon>BeerCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
