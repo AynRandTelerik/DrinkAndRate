@@ -2,12 +2,17 @@
 <%@ Register TagPrefix="uc" TagName="BeerGrid" Src="~/Controls/BeerGrid.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
     <div class="jumbotron">
         <h1>Drink And Rate</h1>
         <p class="lead">Share your experience</p>
-        <%--<p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>--%>
     </div>
 
-    <uc:BeerGrid runat="server" ID="UserControlBeerGrid"/>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Latest added beers</h3>
+        </div>
+        <div class="panel-body">
+            <uc:BeerGrid runat="server" ID="UserControlBeerGrid" />
+        </div>
+    </div>
 </asp:Content>

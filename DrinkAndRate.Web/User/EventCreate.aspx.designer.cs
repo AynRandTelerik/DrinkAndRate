@@ -10,78 +10,105 @@
 namespace DrinkAndRate.Web.User {
     
     
-    public partial class Beers {
+    public partial class EventCreate {
         
         /// <summary>
-        /// UpdataPanelBeer control.
+        /// DivLabelErrorMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdataPanelBeer;
+        protected global::System.Web.UI.WebControls.Panel DivLabelErrorMessage;
         
         /// <summary>
-        /// FilterContainer control.
+        /// LabelErrorMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel FilterContainer;
+        protected global::System.Web.UI.WebControls.Label LabelErrorMessage;
         
         /// <summary>
-        /// SearchTextbox control.
+        /// FileUploadControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SearchTextbox;
+        protected global::DrinkAndRate.Web.Controls.FileUpload FileUploadControl;
         
         /// <summary>
-        /// OrderType control.
+        /// title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList OrderType;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText title;
         
         /// <summary>
-        /// OrderBy control.
+        /// RequiredFieldTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList OrderBy;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldTitle;
         
         /// <summary>
-        /// createBeerButton control.
+        /// location control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor createBeerButton;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText location;
         
         /// <summary>
-        /// FilterButton control.
+        /// RequiredFieldLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button FilterButton;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldLocation;
         
         /// <summary>
-        /// UserControlBeerGrid control.
+        /// date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DrinkAndRate.Web.Controls.BeerGrid UserControlBeerGrid;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date;
+        
+        /// <summary>
+        /// RequiredFieldDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldDate;
+        
+        /// <summary>
+        /// backButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor backButton;
+        
+        /// <summary>
+        /// Submit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Submit;
     }
 }

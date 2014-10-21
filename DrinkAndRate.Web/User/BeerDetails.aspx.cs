@@ -22,7 +22,8 @@ namespace DrinkAndRate.Web.User
                 var dbContext = new DrinkAndRateDbContext();
                 data = new DrinkAndRateData(dbContext);
 
-                SetPageTitle(1);    //TODO
+                var id = int.Parse(this.Request.QueryString["id"]);
+                SetPageTitle(id);    //TODO
             }
         }
 

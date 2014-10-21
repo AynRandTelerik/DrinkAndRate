@@ -215,7 +215,11 @@
     <Content Include="User\ArticleDetails.aspx" />
     <Content Include="User\Articles.aspx" />
     <Content Include="User\BeerCreate.aspx" />
+    <Content Include="User\BeerDetails.aspx" />
     <Content Include="User\Beers.aspx" />
+    <Content Include="User\EventCreate.aspx" />
+    <Content Include="User\Events.aspx" />
+    <Content Include="User\EventDetails.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -378,8 +382,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ArticleViewModel.cs" />
+    <Compile Include="Models\BeerDetailsViewModel.cs" />
     <Compile Include="Models\BeerViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JoinedUsersViewModel.cs" />
+    <Compile Include="Models\EventViewModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -407,6 +415,20 @@
       <DependentUpon>ArticleDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="User\EventCreate.aspx.cs">
+      <DependentUpon>EventCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\EventCreate.aspx.designer.cs">
+      <DependentUpon>EventCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Events.aspx.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Events.aspx.designer.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\ArticleDetails.aspx.designer.cs">
       <DependentUpon>ArticleDetails.aspx</DependentUpon>
     </Compile>
@@ -417,6 +439,9 @@
     <Compile Include="User\Articles.aspx.designer.cs">
       <DependentUpon>Articles.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\BaseUserPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="User\BeerCreate.aspx.cs">
       <DependentUpon>BeerCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -424,12 +449,26 @@
     <Compile Include="User\BeerCreate.aspx.designer.cs">
       <DependentUpon>BeerCreate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\BeerDetails.aspx.cs">
+      <DependentUpon>BeerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\BeerDetails.aspx.designer.cs">
+      <DependentUpon>BeerDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Beers.aspx.cs">
       <DependentUpon>Beers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\Beers.aspx.designer.cs">
       <DependentUpon>Beers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\EventDetails.aspx.cs">
+      <DependentUpon>EventDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\EventDetails.aspx.designer.cs">
+      <DependentUpon>EventDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

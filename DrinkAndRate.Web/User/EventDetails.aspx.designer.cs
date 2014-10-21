@@ -10,78 +10,60 @@
 namespace DrinkAndRate.Web.User {
     
     
-    public partial class Beers {
+    public partial class EventDetails {
         
         /// <summary>
-        /// UpdataPanelBeer control.
+        /// EventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdataPanelBeer;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EventName;
         
         /// <summary>
-        /// FilterContainer control.
+        /// LocationTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel FilterContainer;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LocationTxt;
         
         /// <summary>
-        /// SearchTextbox control.
+        /// CreatorTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SearchTextbox;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CreatorTxt;
         
         /// <summary>
-        /// OrderType control.
+        /// EventDateTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList OrderType;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EventDateTxt;
         
         /// <summary>
-        /// OrderBy control.
+        /// ImageContainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList OrderBy;
+        protected global::System.Web.UI.WebControls.Panel ImageContainer;
         
         /// <summary>
-        /// createBeerButton control.
+        /// ListViewUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor createBeerButton;
-        
-        /// <summary>
-        /// FilterButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button FilterButton;
-        
-        /// <summary>
-        /// UserControlBeerGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DrinkAndRate.Web.Controls.BeerGrid UserControlBeerGrid;
+        protected global::System.Web.UI.WebControls.ListView ListViewUsers;
     }
 }

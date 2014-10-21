@@ -7,27 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DrinkAndRate.Web.Controls {
+namespace DrinkAndRate.Web.User {
     
     
-    public partial class FileUpload {
+    public partial class Events {
         
         /// <summary>
-        /// ImageUpload control.
+        /// createBeerButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload ImageUpload;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor createBeerButton;
         
         /// <summary>
-        /// RequiredFieldImage control.
+        /// FilterButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldImage;
+        protected global::System.Web.UI.WebControls.Button FilterButton;
+        
+        /// <summary>
+        /// ListViewEvents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ListViewEvents;
     }
 }

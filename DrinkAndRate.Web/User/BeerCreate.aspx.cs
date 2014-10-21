@@ -7,7 +7,7 @@
     using System.Web;
     using System.Web.UI;
 
-    public partial class BeerCreate : Page
+    public partial class BeerCreate : BaseUserPage
     {
         private const int MAX_FILE_SIZE = 10485760;
 

@@ -16,9 +16,6 @@
                                 <%#: Item.BrandName +" "+ Item.Name %>
                             </a>
                         </h4>
-                        <p class="truncate">
-                            <%#: Item.CategoryName %>
-                        </p>
                     </div>
                     <div class="pull-right additional-beer-info">
                         <p>
@@ -41,7 +38,6 @@
                         </p>
                     </div>
                      <a href='<%#: "~/User/BeerDetails.aspx?id=" + Item.ID %>' runat="server" class="btn btn-success btn-block">View</a>
-                   <%-- <a href="#/items/{{ item._id }}/edit" class="btn btn-success btn-block">View</a>--%>
                 </div>
             </div>
         </ItemTemplate>
