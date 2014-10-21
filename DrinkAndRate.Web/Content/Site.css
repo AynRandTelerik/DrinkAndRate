@@ -52,3 +52,38 @@ input[type="select"] {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.beer-details table tbody tr td,
+.beer-details table tbody tr,
+.beer-details table tbody,
+.beer-details table {
+   width: 100%;
+}
+
+.beer-details table tbody tr td .ratio{
+    width: 33%;
+    float:left;
+    margin-right: 10px;
+}
+.beer-details {
+    width: 100%;
+}
+
+.beer-details-info {
+    float:right;
+    width:66%;
+}
+
+.italic {
+    font-style: italic;
+}
+.beer-description {
+    min-height: 100px;
+    max-width:80%;
+}
+.beer-category {
+    padding-right:10px;
+}
+.comments {
+    margin-top: 10px;
+}
