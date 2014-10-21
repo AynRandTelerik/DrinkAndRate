@@ -20,20 +20,28 @@
 
         public string PathValue { get; set; }
 
+        public bool IsRequired { get; set; }
+
         protected void Page_Init(object sender, EventArgs e)
         {
-            if (ImageFormats == null)
+            if (this.ImageFormats == null)
             {
-                ImageFormats = defaulFormats;
+                this.ImageFormats = defaulFormats;
             }
 
-            if (String.IsNullOrEmpty(PathValue))
+            if (String.IsNullOrEmpty(this.PathValue))
             {
-                PathValue = DEFAULT_PATH;
+                this.PathValue = DEFAULT_PATH;
             }
-            if (MaxFileSize == 0)
+
+            if (this.MaxFileSize == 0)
             {
-                MaxFileSize = DEFAULT_MAX_FILE_SIZE;
+                this.MaxFileSize = DEFAULT_MAX_FILE_SIZE;
+            }
+
+            if (this.IsRequired)
+            {
+                this.RequiredFieldImage.Visible = true;
             }
         }
 

@@ -55,7 +55,7 @@
                             <LoggedInTemplate>
                                 <li><a runat="server" href="~/User/Beers">Beers</a></li>
                                 <li><a runat="server" href="~/Contact">Articles</a></li>
-                                <li><a runat="server" href="~/Contact">Events</a></li>
+                                <li><a runat="server" href="~/User/Events">Events</a></li>
                                 <li><a runat="server" href="~/Contact">Charts</a></li>
                             </LoggedInTemplate>
                         </asp:LoginView>

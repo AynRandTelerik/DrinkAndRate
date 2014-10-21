@@ -3,11 +3,13 @@
 <%@ Register TagPrefix="uc" TagName="FileUpload" Src="~/Controls/FileUpload.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <asp:Panel ID="DivLabelErrorMessage" runat="server" Visible="false">
-        <asp:Label ID="LabelErrorMessage" runat="server" ClientIDMode="static" CssClass="label label-danger"></asp:Label>
-    </asp:Panel>
+    <br />
+
     <fieldset class="form-horizontal">
+        <legend class="text-center alert alert-dismissable alert-success">Please provide information about the beer:</legend>
+        <asp:Panel ID="DivLabelErrorMessage" runat="server" Visible="false">
+            <asp:Label ID="LabelErrorMessage" runat="server" ClientIDMode="static" CssClass="label label-danger"></asp:Label>
+        </asp:Panel>
         <div class="form-group">
             <label for="ImageUpload" class="col-lg-2 control-label">Image:</label>
             <div class="col-lg-10">

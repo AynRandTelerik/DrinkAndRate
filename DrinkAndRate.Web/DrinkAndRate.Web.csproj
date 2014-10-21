@@ -213,6 +213,8 @@
     <Content Include="Site.Master" />
     <Content Include="User\BeerCreate.aspx" />
     <Content Include="User\Beers.aspx" />
+    <Content Include="User\EventCreate.aspx" />
+    <Content Include="User\Events.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -374,6 +376,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BeerViewModel.cs" />
+    <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -405,6 +408,20 @@
     </Compile>
     <Compile Include="User\Beers.aspx.designer.cs">
       <DependentUpon>Beers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\EventCreate.aspx.cs">
+      <DependentUpon>EventCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\EventCreate.aspx.designer.cs">
+      <DependentUpon>EventCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Events.aspx.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Events.aspx.designer.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
