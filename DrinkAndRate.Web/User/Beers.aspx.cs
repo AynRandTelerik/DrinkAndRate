@@ -17,6 +17,24 @@
         private HashSet<OrderModel> orderByCollection;
         private HashSet<OrderModel> orderTypeCollection;
 
+
+        private bool IsFilterOn
+        {
+            get
+            {
+                if (Session["IsFilterOn"] == null)
+                {
+                    return false;
+                }
+
+                return (bool)Session["IsFilterOn"];
+            }
+            set
+            {
+                Session["IsFilterOn"] = value;
+            }
+        }
+
         //TODO Ninject
         private IDrinkAndRateData data;
 
@@ -53,28 +71,33 @@
 
         private void LoadData()
         {
+            if (!IsFilterOn)
+            {
+                var allBeers = data.Beers.All()
+                    .Select(x => new BeerViewModel
+                    {
+                        Name = x.Name,
+                        AlchoholPercentage = x.AlchoholPercentage,
+                        BeerRatings = x.BeerRatings.Count,
+                        BrandName = x.Brand.Name,
+                        CategoryName = x.Category.Name,
+                        CreatedOn = x.CreatedOn,
+                        CreatorName = x.Creator.UserName,
+                        Description = x.Description,
+                        ID = x.ID,
+                        Image = x.Images.FirstOrDefault()
+                    })
+                    .ToList();
+
+                this.UserControlBeerGrid.BeerList.DataSource = allBeers;
+                this.UserControlBeerGrid.BeerList.DataBind();
+            }
+            else
+            {
+                GetFilteredBeers(null, null);
+            }
+
             LoadFilterData();
-
-            var allBeers = data.Beers.All()
-                .Select(x => new BeerViewModel
-                {
-                    Name = x.Name,
-                    AlchoholPercentage = x.AlchoholPercentage,
-                    BeerRatings = x.BeerRatings.Count,
-                    BrandName = x.Brand.Name,
-                    CategoryName = x.Category.Name,
-                    CreatedOn = x.CreatedOn,
-                    CreatorName = x.Creator.UserName,
-                    Description = x.Description,
-                    ID = x.ID,
-                    Image = x.Images.FirstOrDefault()
-                })
-                .ToList();
-
-            Session["BeerList"] = this.UserControlBeerGrid.BeerList;
-
-            this.UserControlBeerGrid.BeerList.DataSource = allBeers;
-            this.UserControlBeerGrid.BeerList.DataBind();
         }
 
         private void LoadFilterData()
@@ -102,8 +125,19 @@
 
         protected void GetFilteredBeers(object sender, EventArgs e)
         {
-            var orderBy = this.OrderBy.SelectedValue;
-            var orderType = this.OrderType.SelectedValue;
+            Session["IsFilterOn"] = true;
+
+            if (!string.IsNullOrEmpty(this.OrderBy.SelectedValue))
+            {
+                Session["OrderBy"] = this.OrderBy.SelectedValue;
+            }
+            if (!string.IsNullOrEmpty(this.OrderType.SelectedValue))
+            {
+                Session["OrderType"] = this.OrderType.SelectedValue;
+            }
+
+            var orderBy = (string)Session["OrderBy"];
+            var orderType = (string)Session["OrderType"];
 
             var allBeers = this.data.Beers.All();
 
@@ -138,7 +172,7 @@
             }
             else
             {
-                switch (orderType)
+                switch (orderBy)
                 {
                     case "1":
                         allBeers = allBeers.OrderByDescending(beer => beer.CreatedOn);
@@ -181,11 +215,8 @@
                 })
                 .ToList();
 
-            this.UserControlBeerGrid.BeerList = (ListView)Session["BeerList"];
-
             this.UserControlBeerGrid.BeerList.DataSource = filtredBeers;
             this.UserControlBeerGrid.BeerList.DataBind();
         }
-
     }
 }

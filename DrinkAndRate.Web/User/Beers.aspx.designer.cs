@@ -49,13 +49,13 @@ namespace DrinkAndRate.Web.User {
         protected global::System.Web.UI.WebControls.DropDownList OrderBy;
         
         /// <summary>
-        /// A1 control.
+        /// createBeerButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A1;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor createBeerButton;
         
         /// <summary>
         /// FilterButton control.

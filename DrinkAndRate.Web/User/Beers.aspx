@@ -45,7 +45,7 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <a id="A1" href="~/User/BeerCreate" runat="server" class="btn btn-success btn-block">Add new beer</a>
+                    <a id="createBeerButton" href="~/User/BeerCreate" runat="server" class="btn btn-success btn-block">Add new beer</a>
                 </div>
                 <div class="col-md-6">
                     <asp:Button runat="server" ID="FilterButton" CssClass="btn btn-success btn-block" Text="Show filters" OnClick="FilterButton_Click"></asp:Button>
