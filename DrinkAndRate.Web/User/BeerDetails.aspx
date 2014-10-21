@@ -69,7 +69,7 @@
                             </div>
                         </div>
 
-                        <%--                    <asp:ListView ID="ListViewComments" runat="server"
+                        <%-- <asp:ListView ID="ListViewComments" runat="server"
                     ItemType="DrinkAndRate.Web.Models.CommentsViewModel"
                             SelectMethod="FormViewComments_GetAll">
                     <ItemTemplate>
