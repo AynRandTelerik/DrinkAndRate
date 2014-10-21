@@ -5,25 +5,22 @@
     using System.Web.UI.WebControls;
 
     public partial class BeerGrid : UserControl
-    {   
+    {
         public ListView BeerList
         {
             get;
-            private set;
+            set;
         }
 
         public bool HasPaging { get; set; }
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                this.BeerList = ListViewBeers;
+            this.BeerList = ListViewBeers;
 
-                if (this.HasPaging)
-                {
-                    this.BeersDataPagingPanel.Visible = true;
-                }
+            if (this.HasPaging)
+            {
+                this.BeersDataPagingPanel.Visible = true;
             }
         }
     }

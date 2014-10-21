@@ -19,9 +19,6 @@
                         <p class="truncate">
                             <%#: Item.CategoryName %>
                         </p>
-                        <p class="truncate text-center">
-                            <%#: Item.Description %>
-                        </p>
                     </div>
                     <div class="pull-right additional-beer-info">
                         <p>
