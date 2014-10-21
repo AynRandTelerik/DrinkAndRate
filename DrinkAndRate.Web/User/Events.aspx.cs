@@ -6,7 +6,7 @@
     using System.Web.UI;
     using System.Linq;
 
-    public partial class Events : Page
+    public partial class Events : BaseUserPage
     {
         private IDrinkAndRateData data;
 

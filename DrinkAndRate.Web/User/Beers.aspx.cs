@@ -8,7 +8,7 @@
     using System.Linq;
     using System.Web.UI;
 
-    public partial class Beers : Page
+    public partial class Beers : BaseUserPage
     {
         private const string SHOW_MESSAGE = "Show filters";
         private const string HIDE_MESSAGE = "Hide filters";

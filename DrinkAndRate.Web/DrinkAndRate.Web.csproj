@@ -395,6 +395,9 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="User\BaseUserPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="User\BeerCreate.aspx.cs">
       <DependentUpon>BeerCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
