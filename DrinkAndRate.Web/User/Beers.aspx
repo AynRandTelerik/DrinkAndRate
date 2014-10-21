@@ -3,7 +3,7 @@
 <%@ Register TagPrefix="uc" TagName="BeerGrid" Src="~/Controls/BeerGrid.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
+    <br/>
 
     <asp:UpdatePanel ID="UpdataPanelBeer" runat="server">
         <ContentTemplate>
@@ -53,6 +53,7 @@
                     <asp:Button runat="server" ID="FilterButton" CssClass="btn btn-success btn-block" Text="Show filters" OnClick="FilterButton_Click"></asp:Button>
                 </div>
             </div>
+            <br/>
             <uc:BeerGrid runat="server" ID="UserControlBeerGrid" HasPaging="true" />
         </ContentTemplate>
     </asp:UpdatePanel>
