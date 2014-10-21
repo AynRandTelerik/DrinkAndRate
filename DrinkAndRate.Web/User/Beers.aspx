@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="form-group navbar-form">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search">
+                                <asp:TextBox runat="server" ID="SearchTextbox" AutoPostBack="true" TextMode="Search" OnTextChanged="SearchTextbox_TextChanged" placeholder="Search beer with name" CssClass="form-control"></asp:TextBox>
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                                 </span>
@@ -23,20 +23,22 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group">
-                            <label for="OrderType" class="col-md-1 control-label">Order type:</label>
-                            <div class="col-md-4">
-                                <asp:DropDownList ID="OrderType" AutoPostBack="true" OnSelectedIndexChanged="GetFilteredBeers" CssClass="form-control" DataTextField="Name" DataValueField="ID" runat="server">
-                                </asp:DropDownList>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="OrderType" class="control-label col-md-3">Order type:</label>
+                                <div class="col-md-9">
+                                    <asp:DropDownList ID="OrderType" AutoPostBack="true" OnSelectedIndexChanged="GetFilteredBeers" CssClass="form-control" DataTextField="Name" DataValueField="ID" runat="server">
+                                    </asp:DropDownList>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <label for="OrderType" class="col-md-1 control-label">Order by:</label>
-                            <div class="col-md-4">
-                                <asp:DropDownList ID="OrderBy" AutoPostBack="true" OnSelectedIndexChanged="GetFilteredBeers" CssClass="form-control" DataTextField="Name" DataValueField="ID" runat="server">
-                                </asp:DropDownList>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="OrderType" class="control-label col-md-3">Order by:</label>
+                                <div class="col-md-9">
+                                    <asp:DropDownList ID="OrderBy" AutoPostBack="true" OnSelectedIndexChanged="GetFilteredBeers" CssClass="form-control" DataTextField="Name" DataValueField="ID" runat="server">
+                                    </asp:DropDownList>
+                                </div>
                             </div>
                         </div>
                     </div>

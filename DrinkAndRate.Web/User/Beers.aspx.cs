@@ -1,13 +1,12 @@
 ﻿namespace DrinkAndRate.Web.User
 {
     using DrinkAndRate.Data;
-    using DrinkAndRate.Web.Models;
     using DrinkAndRate.Models;
+    using DrinkAndRate.Web.Models;
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Web.UI;
-    using System.Collections.Generic;
-    using System.Web.UI.WebControls;
 
     public partial class Beers : Page
     {
@@ -73,24 +72,8 @@
         {
             if (!IsFilterOn)
             {
-                var allBeers = data.Beers.All()
-                    .Select(x => new BeerViewModel
-                    {
-                        Name = x.Name,
-                        AlchoholPercentage = x.AlchoholPercentage,
-                        BeerRatings = x.BeerRatings.Count,
-                        BrandName = x.Brand.Name,
-                        CategoryName = x.Category.Name,
-                        CreatedOn = x.CreatedOn,
-                        CreatorName = x.Creator.UserName,
-                        Description = x.Description,
-                        ID = x.ID,
-                        Image = x.Images.FirstOrDefault()
-                    })
-                    .ToList();
-
-                this.UserControlBeerGrid.BeerList.DataSource = allBeers;
-                this.UserControlBeerGrid.BeerList.DataBind();
+                var allBeers = data.Beers.All();
+                SetListViewData(allBeers);
             }
             else
             {
@@ -200,22 +183,48 @@
                 }
             }
 
-            var filtredBeers = allBeers.Select(x => new BeerViewModel
-                {
-                    Name = x.Name,
-                    AlchoholPercentage = x.AlchoholPercentage,
-                    BeerRatings = x.BeerRatings.Count,
-                    BrandName = x.Brand.Name,
-                    CategoryName = x.Category.Name,
-                    CreatedOn = x.CreatedOn,
-                    CreatorName = x.Creator.UserName,
-                    Description = x.Description,
-                    ID = x.ID,
-                    Image = x.Images.FirstOrDefault()
-                })
-                .ToList();
+            SetListViewData(allBeers);
+        }
 
-            this.UserControlBeerGrid.BeerList.DataSource = filtredBeers;
+        protected void SearchTextbox_TextChanged(object sender, EventArgs e)
+        {
+            var searchTextValue = this.SearchTextbox.Text;
+
+            var allBeers = this.data.Beers.All();
+
+            if (!string.IsNullOrEmpty(searchTextValue))
+            {
+                allBeers = allBeers.Where(beer => beer.Name.IndexOf(searchTextValue) != -1);
+            }
+
+            SetListViewData(allBeers);
+        }
+
+        private IEnumerable<BeerViewModel> GetBeersData(IQueryable<Beer> queryableBeerData)
+        {
+            var beerData = queryableBeerData.Select(x => new BeerViewModel
+            {
+                Name = x.Name,
+                AlchoholPercentage = x.AlchoholPercentage,
+                BeerRatings = x.BeerRatings.Count,
+                BrandName = x.Brand.Name,
+                CategoryName = x.Category.Name,
+                CreatedOn = x.CreatedOn,
+                CreatorName = x.Creator.UserName,
+                Description = x.Description,
+                ID = x.ID,
+                Image = x.Images.FirstOrDefault()
+            })
+            .ToList();
+
+            return beerData;
+        }
+
+        private void SetListViewData(IQueryable<Beer> queryableBeerData)
+        {
+            var listViewDataBeers = GetBeersData(queryableBeerData);
+
+            this.UserControlBeerGrid.BeerList.DataSource = listViewDataBeers;
             this.UserControlBeerGrid.BeerList.DataBind();
         }
     }
