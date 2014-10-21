@@ -5,16 +5,6 @@
     <asp:Panel ID="DivLabelErrorMessage" runat="server" Visible="false">
         <asp:Label ID="LabelErrorMessage" runat="server" ClientIDMode="static" CssClass="label label-danger"></asp:Label>
     </asp:Panel>
-    <%--<asp:DetailsView ID="DetailsViewBeer" AutoGenerateRows="false" 
-        ItemType="DrinkAndRate.Web.Models.BeerViewModel" 
-        DataKeyNames="ID" 
-        SelectMethod="DetailsViewBeer_GetItem"
-        runat="server">       
-        <Fields>
-            <asp:BoundField DataField="Name" />
-            <asp:BoundField DataField="BrandName" HeaderText="Brand Name" SortExpression="BrandName" />
-        </Fields>
-    </asp:DetailsView>--%>
     <div class="row">
         <div class="panel panel-default beer-details">
             <div class="panel-body">
@@ -39,7 +29,6 @@
                                     <p>
                                         <%#: Item.BeerRatings %> reviews
                                     </p>
-
                                 </div>
                                 <div class="text-left panel panel-default">
                                     <div class="panel-body">
@@ -79,8 +68,8 @@
                                 </div>
                             </div>
                         </div>
-                        
-    <%--                    <asp:ListView ID="ListViewComments" runat="server"
+
+                        <%--                    <asp:ListView ID="ListViewComments" runat="server"
                     ItemType="DrinkAndRate.Web.Models.CommentsViewModel"
                             SelectMethod="FormViewComments_GetAll">
                     <ItemTemplate>
@@ -96,9 +85,8 @@
                         </div>
                     </ItemTemplate>
                 </asp:ListView>--%>
-                    </ItemTemplate>                   
+                    </ItemTemplate>
                 </asp:FormView>
-                
             </div>
         </div>
     </div>

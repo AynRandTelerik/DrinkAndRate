@@ -5,14 +5,14 @@
         <ItemTemplate>
             <div class="col-sm-4 col-lg-4 col-md-4">
                 <div class="thumbnail">
-                    <a href="BeerDetails.aspx?id=<%#: Item.ID %>" title="<%#: Item.Name %>">
+                    <a href='<%#: "~/User/BeerDetails.aspx?id=" + Item.ID %>' runat="server" title="<%#: Item.Name %>">
                         <div class="ratio img-rounded" style="background-image: url('<%#: Item.Image!=null? Page.ResolveUrl(Item.Image.Path): "/Images/default.png" %>')"></div>
                     </a>
                     <div class="caption">
                         <h4 class="pull-right">Alco: <%#: Item.AlchoholPercentage!=null? Item.AlchoholPercentage: 0 %>%
                         </h4>
                         <h4 class="truncate">
-                            <a href="BeerDetails.aspx?id=<%#: Item.ID %>">
+                            <a href='<%#: "~/User/BeerDetails.aspx?id=" + Item.ID %>' runat="server">
                                 <%#: Item.BrandName +" "+ Item.Name %>
                             </a>
                         </h4>
@@ -40,7 +40,7 @@
                             <%#: Item.CreatedOn %>
                         </p>
                     </div>
-                     <a href="BeerDetails.aspx?id=<%#: Item.ID %>" class="btn btn-success btn-block">View</a>
+                     <a href='<%#: "~/User/BeerDetails.aspx?id=" + Item.ID %>' runat="server" class="btn btn-success btn-block">View</a>
                    <%-- <a href="#/items/{{ item._id }}/edit" class="btn btn-success btn-block">View</a>--%>
                 </div>
             </div>
