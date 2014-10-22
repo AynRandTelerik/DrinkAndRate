@@ -1,17 +1,14 @@
 ﻿namespace DrinkAndRate.Web.User
 {
     using DrinkAndRate.Data;
-    using DrinkAndRate.Web.Models;
     using DrinkAndRate.Models;
+    using DrinkAndRate.Web.Models;
     using System;
     using System.Linq;
     using System.Web;
 
     public partial class EventDetails : BaseUserPage
     {
-        private const string JOIN_EVENT = "Join The Event";
-        private const string ALREADY_JOINED = "You Are Part Of The Event";
-
         private IDrinkAndRateData data;
         private int eventId;
         private string currentUserId;
@@ -63,17 +60,20 @@
             this.LocationEditText.Text = eventData.Location;
             this.DateTimeEditText.Text = eventData.Date.ToLocalTime().ToString("yyyy-MM-ddTHH:mm");
 
-            var currentJoinButtonText = JOIN_EVENT;
-
             var isUserJoined = eventData.UsersEvents.Any(userEvent => userEvent.UserID == this.currentUserId);
 
-            if (isUserJoined)
+            if (eventData.CreatorID == this.currentUserId)
             {
-                currentJoinButtonText = ALREADY_JOINED;
-                this.JoinEventButton.Enabled = false;
+                this.JoinEventContainer.Visible = false;
             }
-
-            this.JoinEventButton.Text = currentJoinButtonText;
+            else 
+            {
+                if (isUserJoined)
+                {
+                    this.JoinEventContainer.Visible = false;
+                    this.UnJoinEventContainer.Visible = true;
+                }
+            }
 
             this.ListViewUsers.DataSource = eventData.UsersEvents
                 .Select(userEvents => new JoinedUsersViewModel
@@ -122,6 +122,17 @@
         protected void backButton_Click(object sender, EventArgs e)
         {
             this.EditDataContainer.Visible = false;
+        }
+
+        protected void UnJoinEventButton_Click(object sender, EventArgs e)
+        {
+            var removeJoinedUserEvent = this.data.UsersEvents.All()
+                .First(userEvent => userEvent.EventID == this.eventId && userEvent.UserID == this.currentUserId);
+
+            this.data.UsersEvents.Delete(removeJoinedUserEvent);
+            this.data.SaveChanges();
+
+            this.Response.Redirect(this.Request.RawUrl);
         }
     }
 }

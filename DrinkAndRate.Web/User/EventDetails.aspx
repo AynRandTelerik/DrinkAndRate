@@ -20,11 +20,16 @@
                 </div>
             </div>
             <br />
-            <div class="row">
+            <asp:Panel runat="server" ID="JoinEventContainer" CssClass="row">
                 <div class="col-md-12">
-                    <asp:Button ID="JoinEventButton" CssClass="btn btn-primary col-md-12" runat="server" OnClick="JoinEventButton_Click"></asp:Button>
+                    <asp:Button ID="JoinEventButton" CssClass="btn btn-primary col-md-12" runat="server" Text="Join The Event" OnClick="JoinEventButton_Click"></asp:Button>
                 </div>
-            </div>
+            </asp:Panel>
+            <asp:Panel runat="server" Visible="false" ID="UnJoinEventContainer" CssClass="row">
+                <div class="col-md-12">
+                    <asp:Button ID="UnJoinEventButton" CssClass="btn btn-danger col-md-12" runat="server" Text="Leave" OnClick="UnJoinEventButton_Click"></asp:Button>
+                </div>
+            </asp:Panel>
             <br />
             <asp:Panel CssClass="row" Visible="false" ID="EditEventContainer" runat="server">
                 <div class="col-md-12">
