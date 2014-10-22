@@ -40,11 +40,13 @@
                 <div class="panel-body">
                     <asp:ListView ID="ListViewUsers" runat="server" ItemType="DrinkAndRate.Web.Models.JoinedUsersViewModel">
                         <ItemTemplate>
-                            <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="col-sm-3 col-lg-3 col-md-3">
                                 <div class="thumbnail">
-                                    <%--<asp:Panel CssClass="ratio img-rounded" runat="server" ID="UserImageContainer"></asp:Panel>--%>
-                                    <div class="captions">
-                                        <p id="userNameTxt" runat="server"><%#: Item.UserName %></p>
+                                    <a href="<%#: ResolveUrl("~/User/UserDetails?Id="+Item.ID) %>" title="<%#: Item.UserName %>" id="DetailsUserViewButton">
+                                        <asp:Panel CssClass="ratio" BackImageUrl="<%#: Item.Image.Path %>" runat="server" ID="UserImageContainer"></asp:Panel>
+                                    </a>
+                                    <div class="text-center">
+                                        <p id="userNameTxt" class="label label-info label-thumbnail" runat="server"><%#: Item.UserName %></p>
                                     </div>
                                 </div>
                             </div>

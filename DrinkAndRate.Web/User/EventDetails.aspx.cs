@@ -65,7 +65,8 @@
                 .Select(userEvents => new JoinedUsersViewModel 
                 {
                     UserName = userEvents.User.UserName,
-                    ID = userEvents.User.Id
+                    ID = userEvents.User.Id,
+                    Image = userEvents.User.Image
                 });
 
             this.ListViewUsers.DataBind();
