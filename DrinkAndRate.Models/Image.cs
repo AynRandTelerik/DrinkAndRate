@@ -9,6 +9,7 @@ namespace DrinkAndRate.Models
         {
             Events = new HashSet<Event>();
             Beers = new HashSet<Beer>();
+            Users = new HashSet<AppUser>();
         }
 
         public int ID { get; set; }
@@ -20,5 +21,7 @@ namespace DrinkAndRate.Models
         public virtual ICollection<Event> Events { get; set; }
 
         public virtual ICollection<Beer> Beers { get; set; }
+
+        public virtual ICollection<AppUser> Users { get; set; }
     }
 }

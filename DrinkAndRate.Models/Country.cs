@@ -8,6 +8,7 @@ namespace DrinkAndRate.Models
         public Country()
         {
             Brands = new HashSet<Brand>();
+            Users = new HashSet<AppUser>();
         }
 
         public int ID { get; set; }
@@ -17,5 +18,7 @@ namespace DrinkAndRate.Models
         public string Name { get; set; }
 
         public virtual ICollection<Brand> Brands { get; set; }
+
+        public virtual ICollection<AppUser> Users { get; set; }
     }
 }

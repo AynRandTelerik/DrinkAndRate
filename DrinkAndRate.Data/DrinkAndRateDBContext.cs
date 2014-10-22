@@ -101,6 +101,11 @@ namespace DrinkAndRate.Data
                 .HasMany(e => e.Events)
                 .WithRequired(e => e.Image)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Image>()
+                .HasMany(e => e.Users)
+                .WithRequired(e => e.Image)
+                .WillCascadeOnDelete(false);
         }
     }
 }
