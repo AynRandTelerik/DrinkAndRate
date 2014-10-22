@@ -213,6 +213,7 @@
     <Content Include="Site.Master" />
     <Content Include="User\ArticleCreate.aspx" />
     <Content Include="User\ArticleDetails.aspx" />
+    <Content Include="User\ArticleInfo.aspx" />
     <Content Include="User\Articles.aspx" />
     <Content Include="User\BeerCreate.aspx" />
     <Content Include="User\BeerDetails.aspx" />
@@ -414,6 +415,13 @@
     <Compile Include="User\ArticleDetails.aspx.cs">
       <DependentUpon>ArticleDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ArticleInfo.aspx.cs">
+      <DependentUpon>ArticleInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ArticleInfo.aspx.designer.cs">
+      <DependentUpon>ArticleInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\EventCreate.aspx.cs">
       <DependentUpon>EventCreate.aspx</DependentUpon>

@@ -34,13 +34,13 @@
                     </div>--%>
                     <div class="additional-beer-info">
                         <p class="truncate">
-                            <%#: "Title: " + Item.Title %>
+                            <%#: "Title: " + Item.ArticleTitle %>
                         </p>
                         <p class="truncate">
                             <%#:  "Created by: " + Item.Creator %>
                         </p>
                     </div>
-                    <a href="/User/ArticleDetails.aspx?articleID=<%#:Item.ArticleId %>" class="btn btn-success">View Details...</a>
+                    <a href="/User/ArticleInfo.aspx?articleID=<%#:Item.ArticleId %>" class="btn btn-success">View Details...</a>
                 </div>
             </div>
         </ItemTemplate>

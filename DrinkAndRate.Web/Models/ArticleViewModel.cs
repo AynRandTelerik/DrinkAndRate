@@ -9,7 +9,7 @@ namespace DrinkAndRate.Web.Models
     {
         public int ArticleId { get; set; }
         public string Beer { get; set; }
-        public string Title { get; set; }
+        public string ArticleTitle { get; set; }
         public string Creator { get; set; }
         public string Content { get; set; }
     }
