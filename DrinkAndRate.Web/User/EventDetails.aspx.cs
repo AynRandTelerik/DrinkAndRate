@@ -43,11 +43,25 @@
         {
             var eventData = data.Events.Find(eventId);
 
+            if (eventData == null)
+            {
+                Response.Redirect("~/User/Events");
+            }
+
+            if (eventData.CreatorID == this.currentUserId)
+            {
+                this.EditEventContainer.Visible = true;
+            }
+
             this.ImageContainer.BackImageUrl = eventData.Image.Path;
             this.EventName.InnerText = eventData.Title;
             this.LocationTxt.InnerText = eventData.Location;
             this.CreatorTxt.InnerText = eventData.Creator.UserName;
             this.EventDateTxt.InnerText = eventData.Date.ToString();
+
+            this.EventTitleEditText.Text = eventData.Title;
+            this.LocationEditText.Text = eventData.Location;
+            this.DateTimeEditText.Text = eventData.Date.ToLocalTime().ToString("yyyy-MM-ddTHH:mm");
 
             var currentJoinButtonText = JOIN_EVENT;
 
@@ -62,7 +76,7 @@
             this.JoinEventButton.Text = currentJoinButtonText;
 
             this.ListViewUsers.DataSource = eventData.UsersEvents
-                .Select(userEvents => new JoinedUsersViewModel 
+                .Select(userEvents => new JoinedUsersViewModel
                 {
                     UserName = userEvents.User.UserName,
                     ID = userEvents.User.Id,
@@ -84,6 +98,30 @@
             this.data.SaveChanges();
 
             this.Response.Redirect(this.Request.RawUrl);
+        }
+
+        protected void EditEventButton_Click(object sender, EventArgs e)
+        {
+            this.EditDataContainer.Visible = true;
+        }
+
+        protected void Submit_Click(object sender, EventArgs e)
+        {
+            var eventData = data.Events.Find(eventId);
+
+            eventData.Date = Convert.ToDateTime(this.DateTimeEditText.Text);
+            eventData.Title = this.EventTitleEditText.Text;
+            eventData.Location = this.LocationEditText.Text;
+
+            this.data.Events.Update(eventData);
+            this.data.SaveChanges();
+
+            this.Response.Redirect(this.Request.RawUrl);
+        }
+
+        protected void backButton_Click(object sender, EventArgs e)
+        {
+            this.EditDataContainer.Visible = false;
         }
     }
 }
