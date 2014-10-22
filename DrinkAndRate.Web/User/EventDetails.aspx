@@ -18,6 +18,11 @@
                     When: <big><strong class="text-success text-center" id="EventDateTxt" runat="server"></strong> </big>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <asp:Button ID="JoinEventButton" CssClass="btn btn-primary col-md-12" runat="server" OnClick="JoinEventButton_Click"></asp:Button>
+                </div>
+            </div>
         </div>
         <div class="col-md-6">
             <div class="row">

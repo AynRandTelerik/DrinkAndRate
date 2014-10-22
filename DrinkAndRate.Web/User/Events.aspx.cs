@@ -33,7 +33,7 @@
                     Image = ev.Image,
                     Location = ev.Location,
                     Title = ev.Title,
-                    PeopleJoined = ev.UsersEvents.Count()+1
+                    PeopleJoined = ev.UsersEvents.Count()
                 })
                 .ToList();
 
