@@ -42,7 +42,7 @@
                         <ItemTemplate>
                             <div class="col-sm-3 col-lg-3 col-md-3">
                                 <div class="thumbnail">
-                                    <a href="<%#: ResolveUrl("~/User/UserDetails?Id="+Item.ID) %>" title="<%#: Item.UserName %>" id="DetailsUserViewButton">
+                                    <a href="<%#: ResolveUrl("~/Account/AccountDetails?Id="+Item.ID) %>" title="<%#: Item.UserName %>" id="DetailsUserViewButton">
                                         <asp:Panel CssClass="ratio" BackImageUrl="<%#: Item.Image.Path %>" runat="server" ID="UserImageContainer"></asp:Panel>
                                     </a>
                                     <div class="text-center">

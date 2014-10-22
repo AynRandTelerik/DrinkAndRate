@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Account\AccountDetails.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -212,7 +213,6 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="User\ArticleCreate.aspx" />
-    <Content Include="User\ArticleDetails.aspx" />
     <Content Include="User\ArticleInfo.aspx" />
     <Content Include="User\Articles.aspx" />
     <Content Include="User\BeerCreate.aspx" />
@@ -235,6 +235,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\AccountDetails.aspx.cs">
+      <DependentUpon>AccountDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\AccountDetails.aspx.designer.cs">
+      <DependentUpon>AccountDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
       <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -412,10 +419,6 @@
     <Compile Include="User\ArticleCreate.aspx.designer.cs">
       <DependentUpon>ArticleCreate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\ArticleDetails.aspx.cs">
-      <DependentUpon>ArticleDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="User\ArticleInfo.aspx.cs">
       <DependentUpon>ArticleInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -436,9 +439,6 @@
     </Compile>
     <Compile Include="User\Events.aspx.designer.cs">
       <DependentUpon>Events.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\ArticleDetails.aspx.designer.cs">
-      <DependentUpon>ArticleDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Articles.aspx.cs">
       <DependentUpon>Articles.aspx</DependentUpon>
