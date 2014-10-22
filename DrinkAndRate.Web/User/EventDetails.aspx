@@ -91,6 +91,11 @@
                     </div>
                 </div>
             </asp:Panel>
+            <asp:Panel CssClass="row" Visible="false" ID="RemoveEventContainer" runat="server">
+                <div class="col-md-12">
+                    <asp:Button ID="RemoveEventButton" CssClass="btn btn-danger col-md-12" Text="Remove" runat="server" OnClick="RemoveEventButton_Click"></asp:Button>
+                </div>
+            </asp:Panel>
         </div>
         <div class="col-md-6">
             <div class="row">

@@ -45,9 +45,21 @@
                 Response.Redirect("~/User/Events");
             }
 
+            var isUserJoined = eventData.UsersEvents.Any(userEvent => userEvent.UserID == this.currentUserId);
+
             if (eventData.CreatorID == this.currentUserId)
             {
                 this.EditEventContainer.Visible = true;
+                this.RemoveEventContainer.Visible = true;
+                this.JoinEventContainer.Visible = false;
+            }
+            else
+            {
+                if (isUserJoined)
+                {
+                    this.JoinEventContainer.Visible = false;
+                    this.UnJoinEventContainer.Visible = true;
+                }
             }
 
             this.ImageContainer.BackImageUrl = eventData.Image.Path;
@@ -59,21 +71,6 @@
             this.EventTitleEditText.Text = eventData.Title;
             this.LocationEditText.Text = eventData.Location;
             this.DateTimeEditText.Text = eventData.Date.ToLocalTime().ToString("yyyy-MM-ddTHH:mm");
-
-            var isUserJoined = eventData.UsersEvents.Any(userEvent => userEvent.UserID == this.currentUserId);
-
-            if (eventData.CreatorID == this.currentUserId)
-            {
-                this.JoinEventContainer.Visible = false;
-            }
-            else 
-            {
-                if (isUserJoined)
-                {
-                    this.JoinEventContainer.Visible = false;
-                    this.UnJoinEventContainer.Visible = true;
-                }
-            }
 
             this.ListViewUsers.DataSource = eventData.UsersEvents
                 .Select(userEvents => new JoinedUsersViewModel
@@ -133,6 +130,24 @@
             this.data.SaveChanges();
 
             this.Response.Redirect(this.Request.RawUrl);
+        }
+
+        protected void RemoveEventButton_Click(object sender, EventArgs e)
+        {
+            var allUserEvents = this.data.UsersEvents.All()
+                .Where(userEvent => userEvent.EventID == this.eventId)
+                .ToList();
+
+            foreach (var userEvent in allUserEvents)
+            {
+                this.data.UsersEvents.Delete(userEvent);
+            }
+
+            var currentEvent = this.data.Events.Find(this.eventId);
+            this.data.Events.Delete(currentEvent);
+            this.data.SaveChanges();
+
+            this.Response.Redirect("~/User/Events");
         }
     }
 }
