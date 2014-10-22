@@ -392,6 +392,7 @@
     <Compile Include="Models\ArticleViewModel.cs" />
     <Compile Include="Models\BeerDetailsViewModel.cs" />
     <Compile Include="Models\BeerViewModel.cs" />
+    <Compile Include="Models\CommentsViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JoinedUsersViewModel.cs" />
     <Compile Include="Models\EventViewModel.cs" />

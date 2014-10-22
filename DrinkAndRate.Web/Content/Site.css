@@ -81,7 +81,7 @@ input[type="select"] {
     width: 100%;
 }
 
-    .beer-details table tbody tr td .ratio {
+    .beer-details .ratio {
         width: 33%;
         float: left;
         margin-right: 10px;
@@ -112,6 +112,16 @@ input[type="select"] {
 .comments {
     margin-top: 10px;
 }
+
+    .comments .comment-info {
+        font-size:0.8em;
+        padding-left:10px;
+        border-left: 1px solid #464545;
+    }
+
+    .comments .comment-content {
+        max-width: 80%;
+    }
 
 .label-thumbnail {
     display: inherit;
