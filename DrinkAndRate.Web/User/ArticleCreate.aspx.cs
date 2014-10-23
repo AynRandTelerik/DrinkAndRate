@@ -1,5 +1,6 @@
 ﻿using DrinkAndRate.Data;
 using DrinkAndRate.Models;
+using DrinkAndRate.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace DrinkAndRate.Web.User
 {
-    public partial class ArticleCreate : Page
+    public partial class ArticleCreate : BaseUserPage
     {
         private IDrinkAndRateData data;
 
@@ -51,6 +52,7 @@ namespace DrinkAndRate.Web.User
         private void LoadData()
         {
             var allBeers = this.data.Beers.All().ToList();
+
             this.Beers.DataSource = allBeers;
             this.Beers.DataBind();
         }

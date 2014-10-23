@@ -3,8 +3,11 @@
     <asp:Panel ID="PanelView" runat="server" Visible="true">
         <h3>Full article</h3>
         <h4><%#: this.articleModel.ArticleTitle %></h4>
+        <p>
+            <%#: "Beer:" + this.articleModel.Beer  %>
+        </p>
         <p><%#: this.articleModel.Content %></p>
-        <asp:LinkButton ID="EditButton" CssClass="btn btn-success" runat="server" CommandArgument="ID" OnCommand="EditButton_Command" Text="Edit"></asp:LinkButton>
+        <asp:LinkButton ID="EditButton" Visible="false" CssClass="btn btn-success" runat="server" CommandArgument="ID" OnCommand="EditButton_Command" Text="Edit"></asp:LinkButton>
     </asp:Panel>
     <asp:Panel ID="PanelEdit" runat="server" Visible="false">
         <h3>Edit article</h3>

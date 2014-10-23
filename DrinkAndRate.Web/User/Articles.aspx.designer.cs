@@ -22,13 +22,31 @@ namespace DrinkAndRate.Web.User {
         protected global::System.Web.UI.WebControls.ListView ListViewArticles;
         
         /// <summary>
-        /// BeersDataPagingPanel control.
+        /// ButtonMyArticleRedirect control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel BeersDataPagingPanel;
+        protected global::System.Web.UI.WebControls.Button ButtonMyArticleRedirect;
+        
+        /// <summary>
+        /// ButtonAllArticlesRedirect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonAllArticlesRedirect;
+        
+        /// <summary>
+        /// ArticlesDataPagingPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ArticlesDataPagingPanel;
         
         /// <summary>
         /// DataPagerBeers control.

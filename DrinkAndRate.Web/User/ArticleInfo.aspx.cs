@@ -10,11 +10,18 @@ using System.Web.UI.WebControls;
 
 namespace DrinkAndRate.Web.User
 {
-    public partial class ArticleInfo : Page
+    public partial class ArticleInfo : BaseUserPage
     {
         private IDrinkAndRateData data;
         public Article article;
         public ArticleViewModel articleModel;
+
+        public ArticleInfo()
+        {
+            var dbContext = new DrinkAndRateDbContext();
+            this.data = new DrinkAndRateData(dbContext);
+        }
+
         public void SaveButton_Command(object sender, CommandEventArgs e)
         {
             if (Page.IsValid)
@@ -44,13 +51,15 @@ namespace DrinkAndRate.Web.User
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var dbContext = new DrinkAndRateDbContext();
-            this.data = new DrinkAndRateData(dbContext);
-
             string rawId = Request.QueryString["articleID"];
             int articleId;
 
-            if (!String.IsNullOrEmpty(rawId) && int.TryParse(rawId, out articleId))
+            if (String.IsNullOrEmpty(rawId))
+            {
+                this.Response.Redirect("~/User/Articles");
+            }
+
+            if (int.TryParse(rawId, out articleId))
             {
                 article = this.data.Articles.All()
                     .SingleOrDefault(a => a.ID == articleId);
@@ -63,6 +72,13 @@ namespace DrinkAndRate.Web.User
                     Content = article.Content,
                     Creator = article.Creator.UserName
                 };
+
+                var loggedUser = HttpContext.Current.User.Identity.Name;
+
+                if (loggedUser == article.Creator.UserName)
+                {
+                    this.EditButton.Visible = true;
+                }
 
                 if (!IsPostBack)
                 {
