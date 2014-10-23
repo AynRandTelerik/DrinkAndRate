@@ -81,11 +81,11 @@ input[type="select"] {
     width: 100%;
 }
 
-    .beer-details .ratio {
-        width: 33%;
-        float: left;
-        margin-right: 10px;
-    }
+.beer-details .ratio {
+    width: 33%;
+    float: left;
+    margin-right: 10px;
+}
 
 .beer-details {
     width: 100%;
@@ -114,8 +114,8 @@ input[type="select"] {
 }
 
     .comments .comment-info {
-        font-size:0.8em;
-        padding-left:10px;
+        font-size: 0.8em;
+        padding-left: 10px;
         border-left: 1px solid #464545;
     }
 
@@ -130,8 +130,24 @@ input[type="select"] {
     padding-bottom: 2%;
 }
 
+.padding-thumbnail {
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
+
 .article-style {
     padding: 5px;
     margin-left: 5px;
 }
 
+.ultra-huge-font {
+    font-size: 200%;
+}
+
+.huge-font {
+    font-size: 160%;
+}
+
+.big-font {
+    font-size: 130%;
+}

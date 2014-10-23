@@ -164,6 +164,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Controls\BeerGrid.ascx" />
+    <Content Include="Controls\ChartGrid.ascx" />
     <Content Include="Images\default.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -216,6 +217,8 @@
     <Content Include="User\BeerCreate.aspx" />
     <Content Include="User\BeerDetails.aspx" />
     <Content Include="User\Beers.aspx" />
+    <Content Include="User\ChartDetails.aspx" />
+    <Content Include="User\Charts.aspx" />
     <Content Include="User\EventCreate.aspx" />
     <Content Include="User\Events.aspx" />
     <Content Include="User\EventDetails.aspx" />
@@ -356,6 +359,13 @@
     <Compile Include="Controls\BeerGrid.ascx.designer.cs">
       <DependentUpon>BeerGrid.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ChartGrid.ascx.cs">
+      <DependentUpon>ChartGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ChartGrid.ascx.designer.cs">
+      <DependentUpon>ChartGrid.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\FileUpload.ascx.cs">
       <DependentUpon>FileUpload.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -374,8 +384,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ArticleViewModel.cs" />
+    <Compile Include="Models\BeerChartViewModel.cs" />
     <Compile Include="Models\BeerDetailsViewModel.cs" />
     <Compile Include="Models\BeerViewModel.cs" />
+    <Compile Include="Models\ChartViewModel.cs" />
     <Compile Include="Models\CommentsViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JoinedUsersViewModel.cs" />
@@ -410,6 +422,20 @@
     </Compile>
     <Compile Include="User\ArticleInfo.aspx.designer.cs">
       <DependentUpon>ArticleInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\ChartDetails.aspx.cs">
+      <DependentUpon>ChartDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ChartDetails.aspx.designer.cs">
+      <DependentUpon>ChartDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Charts.aspx.cs">
+      <DependentUpon>Charts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Charts.aspx.designer.cs">
+      <DependentUpon>Charts.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\EventCreate.aspx.cs">
       <DependentUpon>EventCreate.aspx</DependentUpon>
