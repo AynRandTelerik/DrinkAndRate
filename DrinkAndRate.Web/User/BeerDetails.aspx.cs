@@ -87,7 +87,7 @@ namespace DrinkAndRate.Web.User
             //Edit
             this.BeerNameEditText.Text = beerData.Name;
 
-            this.AlcoEditText.Text = beerData.AlchoholPercentage.Value.ToString("0.0");
+            this.AlcoEditText.Text = string.Format("Alco: {0} %", beerData.AlchoholPercentage != null ? beerData.AlchoholPercentage.Value.ToString("0.0") : "0");
             this.DescriptionEditText.Text = beerData.Description;
 
             var allCategories = this.data.Categories.All().ToList();
