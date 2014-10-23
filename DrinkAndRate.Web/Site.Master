@@ -38,7 +38,7 @@
 			</Scripts>
 		</asp:ScriptManager>
 
-		<div class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar navbar-default navbar-static-top">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -92,9 +92,6 @@
 			</div>
 		</div>
 		<div class="container body-content">
-			<br />
-			<br />
-			<br />
 			<asp:Panel ID="panelSiteMapPath" runat="server">
 				<br />
 				<asp:SiteMapPath ID="SiteMapPath" SiteMapProvider="secureProvider" runat="server"></asp:SiteMapPath>
