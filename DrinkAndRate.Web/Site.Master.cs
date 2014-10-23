@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,7 +14,7 @@ namespace DrinkAndRate.Web
 		private const string AntiXsrfTokenKey = "__AntiXsrfToken";
 		private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
 		private string _antiXsrfTokenValue;
-
+        private IDrinkAndRateData data;
 		protected void Page_Init(object sender, EventArgs e)
 		{
 			// The code below helps to protect against XSRF attacks
@@ -67,11 +68,11 @@ namespace DrinkAndRate.Web
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (Context.User.Identity.IsAuthenticated)
+            var dbContext = new DrinkAndRateDbContext();
+            data = new DrinkAndRateData(dbContext);
+			
+            if (Context.User.Identity.IsAuthenticated)
 			{
-				var dbContext = new DrinkAndRateDbContext();
-				var data = new DrinkAndRateData(dbContext);
-
 				var user = data.Users.All()
 					.Single(x => x.UserName == this.Context.User.Identity.Name);
 				var adminRole = data.Roles.All()
@@ -82,11 +83,29 @@ namespace DrinkAndRate.Web
 					this.panelAdminMenu.Visible = true;
 				}
 			}
+
+            CacheBeerInfo();
 		}
 
 		protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
 		{
 			Context.GetOwinContext().Authentication.SignOut();
 		}
+
+        private void CacheBeerInfo()
+        {
+            if (this.Cache["beers"] == null)
+            {
+                var beersCollection = data.Beers.All()
+                    .ToList();
+
+                Cache.Insert("beers", beersCollection, null, DateTime.Now.AddMinutes(10), Cache.NoSlidingExpiration, CacheItemPriority.Default, OnRemoveCallback);
+            }
+        }
+
+        private void OnRemoveCallback(string key, object value, CacheItemRemovedReason reason)
+        {
+            CacheBeerInfo();
+        }
 	}
 }

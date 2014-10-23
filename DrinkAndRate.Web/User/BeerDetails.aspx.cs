@@ -50,7 +50,9 @@ namespace DrinkAndRate.Web.User
 
         private void LoadData()
         {
-            var beerData = data.Beers.All().FirstOrDefault(b => b.ID == beerId);
+            var allBeers = this.Cache["beers"] as IEnumerable<Beer>;
+            var beerData = allBeers.FirstOrDefault(b => b.ID == beerId);
+            //var beerData = data.Beers.All().FirstOrDefault(b => b.ID == beerId);
 
             if (beerData == null)
             {
