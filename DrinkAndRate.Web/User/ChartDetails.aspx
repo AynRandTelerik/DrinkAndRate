@@ -23,7 +23,7 @@
                             <asp:Label runat="server" Text="Rating"></asp:Label>
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <asp:Label runat="server" Text='<%#: Item.Rating!=null?Item.Rating:0 %>'></asp:Label>
+                            <asp:Label runat="server" Text='<%#: Item.Rating!=null?Item.Rating.Value.ToString("0.0") : "0" %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField ItemStyle-CssClass="text-center" HeaderStyle-CssClass="text-center">

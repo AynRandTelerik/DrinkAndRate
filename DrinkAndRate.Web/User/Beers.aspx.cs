@@ -135,7 +135,7 @@
                         allBeers = allBeers.OrderBy(beer => beer.Creator.UserName);
                         break;
                     case "3":
-                        allBeers = allBeers.OrderBy(beer => beer.BeerRatings);
+                        allBeers = allBeers.OrderBy(beer => beer.BeerRatings.Average(rating => rating.Rating));
                         break;
                     case "4":
                         allBeers = allBeers.OrderBy(beer => beer.Comments.Count);
@@ -164,7 +164,7 @@
                         allBeers = allBeers.OrderByDescending(beer => beer.Creator.UserName);
                         break;
                     case "3":
-                        allBeers = allBeers.OrderByDescending(beer => beer.BeerRatings);
+                        allBeers = allBeers.OrderByDescending(beer => beer.BeerRatings.Average(rating => rating.Rating));
                         break;
                     case "4":
                         allBeers = allBeers.OrderByDescending(beer => beer.Comments.Count);

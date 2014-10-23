@@ -27,7 +27,7 @@ namespace DrinkAndRate.Models
 
 		public double? AlchoholPercentage { get; set; }
 
-		[StringLength(250)]
+		[StringLength(1000)]
 		public string Description { get; set; }
 
 		[Required]
