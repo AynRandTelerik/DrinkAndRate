@@ -99,7 +99,7 @@ namespace DrinkAndRate.Data.Migrations
 						FirstName = firstName,
 						LastName = lastName,
 						Country = country,
-						Image = new Image() { Path = string.Format("~/Images/Users/({0}).png", userIndex + 1) }
+						Image = new Image() { Path = string.Format("~/Images/Users/{0}.jpg", userIndex + 1) }
 					};
 					isSuccess = userManager.Create(user, userName).Succeeded;
 					if (isSuccess)
@@ -185,6 +185,49 @@ namespace DrinkAndRate.Data.Migrations
 					Images = new[] { new Image() { Path = "~/Images/Beers/Shumensko_Twist.jpg" } }
 				}
 			);
+
+			// Events
+			var eventDenver = new Event()
+			{
+				Title = "Denver Beerfest",
+				Creator = userAdmin,
+				Date = DateTime.Now.AddDays(10),
+				Image = new Image() { Path = "~/Images/Events/Denver.jpg" },
+				Location = "Denver"
+			};
+			eventDenver.UsersEvents = context.Users.Local.Take(30).Select(user => new UsersEvents() { Event = eventDenver, User = user }).ToArray();
+
+			var eventBelgrade = new Event()
+			{
+				Title = "Belgrade Beerfest",
+				Creator = context.Users.Local.Skip(10).First(),
+				Date = DateTime.Now.AddDays(15),
+				Image = new Image() { Path = "~/Images/Events/Belgrade.jpg" },
+				Location = "Belgrade"
+			};
+			eventBelgrade.UsersEvents = context.Users.Local.Skip(30).Take(30).Select(user => new UsersEvents() { Event = eventBelgrade, User = user }).ToArray();
+
+			var eventPalmBeachNewTimes = new Event()
+			{
+				Title = "Palm Beach New Times Beerfest",
+				Creator = context.Users.Local.Skip(60).First(),
+				Date = DateTime.Now.AddDays(15),
+				Image = new Image() { Path = "~/Images/Events/PalmBeachNewTimes.jpg" },
+				Location = "Palm Beach"
+			};
+			eventPalmBeachNewTimes.UsersEvents = context.Users.Local.Skip(60).Take(30).Select(user => new UsersEvents() { Event = eventPalmBeachNewTimes, User = user }).ToArray();
+
+			var eventTheAustralian = new Event()
+			{
+				Title = "The Australian Beerfest",
+				Creator = context.Users.Local.Skip(13).First(),
+				Date = DateTime.Now.AddDays(15),
+				Image = new Image() { Path = "~/Images/Events/TheAustralian.jpg" },
+				Location = "Sydney"
+			};
+			eventTheAustralian.UsersEvents = context.Users.Local.Skip(90).Select(user => new UsersEvents() { Event = eventTheAustralian, User = user }).ToArray();
+
+			context.Events.AddOrUpdate(eventDenver, eventBelgrade, eventPalmBeachNewTimes, eventTheAustralian);
 
 			context.SaveChanges();
 		}
