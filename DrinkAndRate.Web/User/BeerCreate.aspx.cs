@@ -102,7 +102,7 @@
 
 				if (!string.IsNullOrEmpty(this.alcoholPercentage.Value))
 				{
-					newBeer.AlchoholPercentage = float.Parse(this.alcoholPercentage.Value);
+					newBeer.AlchoholPercentage = double.Parse(this.alcoholPercentage.Value);
 				}
 
 				if (!string.IsNullOrEmpty(this.description.Value))

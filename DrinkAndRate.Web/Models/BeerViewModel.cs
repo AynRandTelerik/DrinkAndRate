@@ -9,7 +9,7 @@
 
         public string Name { get; set; }
 
-        public float? AlchoholPercentage { get; set; }
+		public double? AlchoholPercentage { get; set; }
 
         public int BeerRatings { get; set; }
 

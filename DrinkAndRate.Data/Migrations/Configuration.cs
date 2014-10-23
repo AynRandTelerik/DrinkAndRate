@@ -44,11 +44,13 @@ namespace DrinkAndRate.Data.Migrations
 
 			// Images
 			var defaultImage = new Image { Path = "~/Images/default.png" };
-			var adminImage = new Image { Path = "~/Images/admin.png" };
+			var adminImage = new Image { Path = "~/Images/admin.jpg" };
 			context.Images.AddOrUpdate(
 				defaultImage,
 				adminImage
 			);
+
+			context.SaveChanges();
 
 			// Countries
 			var json = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"\App_Data\countries.json");
@@ -75,28 +77,36 @@ namespace DrinkAndRate.Data.Migrations
 
 			for (int userIndex = 0; userIndex < 100; userIndex++)
 			{
-				var firstName = NameData.GetFirstName();
-				var lastName = NameData.GetSurname();
-				var userName = firstName + "@" + lastName;
+				bool isSuccess = false;
 
-				Country country = null;
-				while (country == null)
+				while (!isSuccess)
 				{
-					var countryName = PlaceData.GetCountry();
-					country = context.Countries.Local.SingleOrDefault(item => item.Name == countryName);
+					var firstName = NameData.GetFirstName();
+					var lastName = NameData.GetSurname();
+					var userName = firstName + "@" + lastName;
+
+					Country country = null;
+					while (country == null)
+					{
+						var countryName = PlaceData.GetCountry();
+						country = context.Countries.Local.SingleOrDefault(item => item.Name == countryName);
+					}
+
+					var user = new AppUser
+					{
+						UserName = userName,
+						Email = userName,
+						FirstName = firstName,
+						LastName = lastName,
+						Country = country,
+						Image = new Image() { Path = string.Format("~/Images/Users/({0}).png", userIndex + 1) }
+					};
+					isSuccess = userManager.Create(user, userName).Succeeded;
+					if (isSuccess)
+					{
+						userManager.AddToRole(user.Id, userRole);
+					}
 				}
-
-				var user = new AppUser
-				{
-					UserName = userName,
-					Email = userName,
-					FirstName = firstName,
-					LastName = lastName,
-					Country = country,
-					Image = new Image() { Path = string.Format("~/Images/Users/({0}).png", userIndex + 1) }
-				};
-				userManager.Create(user, userName);
-				userManager.AddToRole(user.Id, userRole);
 			}
 
 			// Beer Categories
@@ -136,7 +146,7 @@ namespace DrinkAndRate.Data.Migrations
 			context.Beers.AddOrUpdate(
 				new Beer
 				{
-					Name = string.Format("{0} {1}", brandShumensko.Name, categoryDark.Name),
+					Name = categoryDark.Name,
 					Brand = brandShumensko,
 					AlchoholPercentage = 5.5f,
 					Category = categoryDark,
@@ -146,7 +156,7 @@ namespace DrinkAndRate.Data.Migrations
 				},
 				new Beer
 				{
-					Name = string.Format("{0} {1}", brandShumensko.Name, categoryLight.Name),
+					Name = categoryLight.Name,
 					Brand = brandShumensko,
 					AlchoholPercentage = 4.3f,
 					Category = categoryLight,
@@ -156,7 +166,7 @@ namespace DrinkAndRate.Data.Migrations
 				},
 				new Beer
 				{
-					Name = string.Format("{0} {1}", brandShumensko.Name, categoryPremium.Name),
+					Name = categoryPremium.Name,
 					Brand = brandShumensko,
 					AlchoholPercentage = 4.6f,
 					Category = categoryPremium,
@@ -166,7 +176,7 @@ namespace DrinkAndRate.Data.Migrations
 				},
 				new Beer
 				{
-					Name = string.Format("{0} Twist", brandShumensko.Name),
+					Name = "Twist",
 					Brand = brandShumensko,
 					AlchoholPercentage = 2f,
 					Category = categoryFruit,

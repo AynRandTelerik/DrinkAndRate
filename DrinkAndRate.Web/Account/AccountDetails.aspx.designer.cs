@@ -31,6 +31,24 @@ namespace DrinkAndRate.Web.Account {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl userNameText;
         
         /// <summary>
+        /// panelManagePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelManagePassword;
+        
+        /// <summary>
+        /// ChangePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink ChangePassword;
+        
+        /// <summary>
         /// fullNameText control.
         /// </summary>
         /// <remarks>

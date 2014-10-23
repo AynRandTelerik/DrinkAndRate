@@ -25,7 +25,7 @@ namespace DrinkAndRate.Models
 		[StringLength(50)]
 		public string Name { get; set; }
 
-		public float? AlchoholPercentage { get; set; }
+		public double? AlchoholPercentage { get; set; }
 
 		[StringLength(250)]
 		public string Description { get; set; }

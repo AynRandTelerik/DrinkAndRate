@@ -50,17 +50,15 @@ namespace DrinkAndRate.Web.Account
 				return;
 			}
 
-			Image image = null;
+
 			if (string.IsNullOrEmpty(filePathAndName))
 			{
-				image = this.data.Images.Find(1);
+				user.ImageID = this.data.Images.Find(1).ID;
 			}
 			else
 			{
-				image = new Image { Path = filePathAndName };
+				user.Image = new Image { Path = filePathAndName };
 			}
-
-			user.Image = image;
 
 			IdentityResult result = manager.Create(user, Password.Text);
 			if (result.Succeeded)

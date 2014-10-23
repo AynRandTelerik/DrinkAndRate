@@ -9,9 +9,9 @@
                         <div class="ratio img-rounded" style="background-image: url('<%#: Item.Image!=null? Page.ResolveUrl(Item.Image.Path): "/Images/default.png" %>')"></div>
                     </a>
                     <div class="caption">
-                        <h4 class="pull-right">Alco: <%#: Item.AlchoholPercentage!=null? Item.AlchoholPercentage: 0 %>%
+                        <h4 class="pull-right">Alco: <%#: Item.AlchoholPercentage!=null ? Item.AlchoholPercentage.Value.ToString("0.0") : "0" %>%
                         </h4>
-                        <h4 class="truncate">
+                        <h4 class="truncate" style="height: 40px">
                             <a href='<%#: "~/User/BeerDetails.aspx?id=" + Item.ID %>' runat="server">
                                 <%#: Item.BrandName +" "+ Item.Name %>
                             </a>
