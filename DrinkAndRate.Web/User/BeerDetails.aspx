@@ -1,8 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="BeerDetails.aspx.cs" Inherits="DrinkAndRate.Web.User.BeerDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Beer Details" MasterPageFile="~/Site.Master" CodeBehind="BeerDetails.aspx.cs" Inherits="DrinkAndRate.Web.User.BeerDetails" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <%--    <h2><%: Title %></h2>--%>
-    <h2 id="BeerName" runat="server"></h2>
     <asp:Panel ID="DivLabelErrorMessage" runat="server" Visible="false">
         <asp:Label ID="LabelErrorMessage" runat="server" ClientIDMode="static" CssClass="label label-danger"></asp:Label>
     </asp:Panel>
@@ -17,17 +15,27 @@
                             <h4 id="Alco" runat="server"></h4>
                             <hr />
                             <h3 id="BeerRatings" runat="server"></h3>
+
                             <fieldset class="rating" runat="server">
-                                <input type="radio" id="star5" runat="server" name="BeerRating" value="5" onserverchange="Star_Select"/><label for="star5" title="Rocks!">5 stars</label>
-                                <input type="radio" id="star4" runat="server" name="BeerRating" value="4" onserverchange="Star_Select"/><label for="star4" title="Pretty good">4 stars</label>
-                                <input type="radio" id="star3" runat="server" name="BeerRating" value="3" onserverchange="Star_Select"/><label for="star3" title="Meh">3 stars</label>
-                                <input type="radio" id="star2" runat="server" name="BeerRating" value="2" onserverchange="Star_Select"/><label for="star2" title="Kinda bad">2 stars</label>
-                                <input type="radio" id="star1" runat="server" name="BeerRating" value="1" onserverchange="Star_Select"/><label for="star1" title="Sucks big time">1 star</label>
+                                <asp:Label runat="server" AssociatedControlID="star_5" title="Rocks!">5 stars</asp:Label>
+                                <asp:RadioButton ID="star_5" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
+
+                                <asp:Label runat="server" AssociatedControlID="star_4" title="Pretty good">4 stars</asp:Label>
+                                <asp:RadioButton ID="star_4" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
+
+                                <asp:Label runat="server" AssociatedControlID="star_3" title="Meh">3 stars</asp:Label>
+                                <asp:RadioButton ID="star_3" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
+
+                                <asp:Label runat="server" AssociatedControlID="star_2" title="Kinda bad">2 stars</asp:Label>
+                                <asp:RadioButton ID="star_2" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
+
+                                <asp:Label runat="server" AssociatedControlID="star_1" title="Sucks big time">1 stars</asp:Label>
+                                <asp:RadioButton ID="star_1" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
                             </fieldset>
-                            <asp:Button ID="ButtonVote" CssClass="btn btn-primary" runat="server" Text="Vote" OnClick="Star_Select" />
                         </div>
                         <div class="text-left panel panel-default">
                             <div class="panel-body">
+                                <h2 id="BeerName" runat="server"></h2>
                                 <p class="text-justify italic beer-description" id="Description" runat="server">
                                 </p>
                             </div>

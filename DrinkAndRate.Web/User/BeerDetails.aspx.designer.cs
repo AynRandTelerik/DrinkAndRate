@@ -13,15 +13,6 @@ namespace DrinkAndRate.Web.User {
     public partial class BeerDetails {
         
         /// <summary>
-        /// BeerName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BeerName;
-        
-        /// <summary>
         /// DivLabelErrorMessage control.
         /// </summary>
         /// <remarks>
@@ -76,58 +67,58 @@ namespace DrinkAndRate.Web.User {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl BeerRatings;
         
         /// <summary>
-        /// star5 control.
+        /// star_5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton star5;
+        protected global::System.Web.UI.WebControls.RadioButton star_5;
         
         /// <summary>
-        /// star4 control.
+        /// star_4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton star4;
+        protected global::System.Web.UI.WebControls.RadioButton star_4;
         
         /// <summary>
-        /// star3 control.
+        /// star_3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton star3;
+        protected global::System.Web.UI.WebControls.RadioButton star_3;
         
         /// <summary>
-        /// star2 control.
+        /// star_2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton star2;
+        protected global::System.Web.UI.WebControls.RadioButton star_2;
         
         /// <summary>
-        /// star1 control.
+        /// star_1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton star1;
+        protected global::System.Web.UI.WebControls.RadioButton star_1;
         
         /// <summary>
-        /// ButtonVote control.
+        /// BeerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonVote;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BeerName;
         
         /// <summary>
         /// Description control.

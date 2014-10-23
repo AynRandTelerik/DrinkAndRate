@@ -110,11 +110,11 @@ input[type="select"] {
 	margin-top: 10px;
 }
 
-	.comments .comment-info {
+    .comments .comment-info {
         font-size: 0.8em;
         padding-left: 10px;
-		border-left: 1px solid #464545;
-	}
+        border-left: 1px solid #464545;
+    }
 
 	.comments .comment-content {
 		max-width: 80%;
@@ -183,4 +183,26 @@ input[type="select"] {
     left:2px;
 }#panelAdminMenu .navbar-text {
 	color: turquoise;
+}
+
+.padding-thumbnail {
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
+
+.article-style {
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.ultra-huge-font {
+    font-size: 200%;
+}
+
+.huge-font {
+    font-size: 160%;
+}
+
+.big-font {
+    font-size: 130%;
 }

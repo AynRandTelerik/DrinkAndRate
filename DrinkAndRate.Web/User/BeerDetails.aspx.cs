@@ -16,7 +16,6 @@ namespace DrinkAndRate.Web.User
         private IDrinkAndRateData data;
         private int beerId;
         private string currentUserId;
-        private int rating;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,7 +44,7 @@ namespace DrinkAndRate.Web.User
                 if (!IsPostBack)
                 {
                     LoadData();
-                }                
+                }
             }
         }
 
@@ -67,7 +66,7 @@ namespace DrinkAndRate.Web.User
             this.BeerName.InnerText = beerData.Name;
             this.ImageContainer.BackImageUrl = beerData.Images.Count > 0 ? beerData.Images.FirstOrDefault().Path : "../Images/default.png";
             this.Alco.InnerText = "Alco: " + beerData.AlchoholPercentage.ToString() + "%";
-            this.CategoryName.InnerText = beerData.Category.Name;            
+            this.CategoryName.InnerText = beerData.Category.Name;
             this.Description.InnerText = beerData.Description;
             this.BrandName.InnerText = beerData.Brand.Name;
             this.BrandCountry.InnerText = beerData.Brand.Country.Name;
@@ -191,20 +190,33 @@ namespace DrinkAndRate.Web.User
 
         protected void Star_Select(object sender, EventArgs e)
         {
-            if (Request.Form["BeerRating"] != null)
+            var selectedRadioButtonId = ((RadioButton)sender).ID;
+            var selectedValue = selectedRadioButtonId.Split('_')[1];
+
+            var rating = int.Parse(selectedValue);
+
+            var alreadyRatedBeer = this.data.BeerRatings.All()
+                .FirstOrDefault(rate => rate.BeerID == this.beerId && rate.UserID == this.currentUserId);
+
+            if (alreadyRatedBeer != null)
             {
-                rating = int.Parse(Request.Form["BeerRating"]);
+                alreadyRatedBeer.Rating = rating;
+                alreadyRatedBeer.RatedOn = DateTime.Now;
+                this.data.BeerRatings.Update(alreadyRatedBeer);
+            }
+            else
+            {
+                var newRating = new BeerRating
+                {
+                    BeerID = beerId,
+                    UserID = currentUserId,
+                    RatedOn = DateTime.Now,
+                    Rating = rating
+                };
+
+                this.data.BeerRatings.Add(newRating);
             }
 
-            var newRating = new BeerRating
-            {
-                BeerID = beerId,
-                UserID = currentUserId,
-                RatedOn = DateTime.Now,
-                Rating = rating
-            };
-
-            this.data.BeerRatings.Add(newRating);
             this.data.SaveChanges();
 
             Response.Redirect("~/User/BeerDetails.aspx?id=" + beerId);
