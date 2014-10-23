@@ -19,6 +19,8 @@
 
                 LoadData();
             }
+
+			Master.FindControl("panelSiteMapPath").Visible = false;
         }
 
         private void LoadData()

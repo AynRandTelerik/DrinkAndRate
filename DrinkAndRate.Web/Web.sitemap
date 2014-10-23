@@ -1,7 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-    <siteMapNode url="~/Default.aspx" title="Home"  description="">
-        <siteMapNode url="" title=""  description="" />
-        <siteMapNode url="" title=""  description="" />
-    </siteMapNode>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+	<siteMapNode url="~/" title="Drink And Rate"  description="Drink And Rate">
+		<siteMapNode url="~/User/Beers"			title="Beers"  description="">
+			<siteMapNode url="~/User/BeerCreate"			title="Create Beer"  description="" />
+			<siteMapNode url="~/User/BeerDetails"			title="Beer Details"  description="" />
+		</siteMapNode>
+		<siteMapNode url="~/User/Articles"		title="Articles"  description="">
+			<siteMapNode url="~/User/ArticleCreate"			title="Create Article"  description="" />
+			<siteMapNode url="~/User/ArticleInfo"			title="Article Info"  description="" />
+		</siteMapNode>
+		<siteMapNode url="~/User/Events"			title="Events"  description="">
+			<siteMapNode url="~/User/EventCreate"			title="Create Event"  description="" />
+			<siteMapNode url="~/User/EventDetails"			title="Event Details"  description="" />
+		</siteMapNode>
+		<siteMapNode url="~/User/Charts"	title="Charts"  description="">
+			<siteMapNode url="~/User/ChartDetails"			title="Chart Details"  description="" />
+		</siteMapNode>
+		<siteMapNode url="~/Admin/UsersGrid"			title="Users Grid"  description="" />
+		<siteMapNode url="~/Admin/BeersGrid"			title="Beers Grid"  description="" />
+		<siteMapNode url="~/Admin/ArticlesGrid"		title="Articles Grid"  description="" />
+		<siteMapNode url="~/Admin/EventsGrid"			title="Events Grid"  description="" />
+		<siteMapNode url="~/Admin/CountriesGrid"	title="Countries Grid"  description="" />
+		<siteMapNode url="~/Admin/ImagesGrid"			title="Images Grid"  description="" />
+	</siteMapNode>
 </siteMap>
