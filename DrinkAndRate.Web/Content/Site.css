@@ -207,6 +207,11 @@ input[type="select"] {
     font-size: 130%;
 }
 
-head-margin {
+.head-margin {
     margin-bottom: 10px;
+}
+
+.error-margin {
+    padding: 5px;
+    padding-left: 10px
 }

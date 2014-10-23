@@ -176,6 +176,7 @@
     <Content Include="Admin\BeersGrid.aspx" />
     <Content Include="Controls\BeerGrid.ascx" />
     <Content Include="Controls\ChartGrid.ascx" />
+    <Content Include="ErrorPage.aspx" />
     <Content Include="Images\banner-home-bottles.png" />
     <Content Include="Images\default.png" />
     <Content Include="Content\bootstrap.css" />
@@ -437,6 +438,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
