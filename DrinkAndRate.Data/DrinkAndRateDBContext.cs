@@ -31,7 +31,7 @@ namespace DrinkAndRate.Data
 
         public virtual IDbSet<Image> Images { get; set; }
 
-        public virtual IDbSet<UsersEvents> UsersEvents { get; set; }
+		public virtual IDbSet<UsersEvents> UsersEvents { get; set; }
 
         public static DrinkAndRateDbContext Create()
         {

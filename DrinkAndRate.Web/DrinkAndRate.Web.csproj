@@ -40,12 +40,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.EntityDataSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.EntityDataSource.6.0.0\lib\net40\Microsoft.AspNet.EntityDataSource.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -163,6 +168,12 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Admin\ArticlesGrid.aspx" />
+    <Content Include="Admin\ImagesGrid.aspx" />
+    <Content Include="Admin\CountriesGrid.aspx" />
+    <Content Include="Admin\UsersGrid.aspx" />
+    <Content Include="Admin\EventsGrid.aspx" />
+    <Content Include="Admin\BeersGrid.aspx" />
     <Content Include="Controls\BeerGrid.ascx" />
     <Content Include="Controls\ChartGrid.ascx" />
     <Content Include="Images\banner-home-bottles.png" />
@@ -348,6 +359,51 @@
     </Compile>
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BaseAdminPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ArticlesGrid.aspx.cs">
+      <DependentUpon>ArticlesGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ArticlesGrid.aspx.designer.cs">
+      <DependentUpon>ArticlesGrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ImagesGrid.aspx.cs">
+      <DependentUpon>ImagesGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ImagesGrid.aspx.designer.cs">
+      <DependentUpon>ImagesGrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CountriesGrid.aspx.cs">
+      <DependentUpon>CountriesGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CountriesGrid.aspx.designer.cs">
+      <DependentUpon>CountriesGrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UsersGrid.aspx.cs">
+      <DependentUpon>UsersGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UsersGrid.aspx.designer.cs">
+      <DependentUpon>UsersGrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EventsGrid.aspx.cs">
+      <DependentUpon>EventsGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EventsGrid.aspx.designer.cs">
+      <DependentUpon>EventsGrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BeersGrid.aspx.cs">
+      <DependentUpon>BeersGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BeersGrid.aspx.designer.cs">
+      <DependentUpon>BeersGrid.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />

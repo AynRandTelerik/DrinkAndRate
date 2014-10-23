@@ -1,6 +1,7 @@
 ﻿namespace DrinkAndRate.Data
 {
     using DrinkAndRate.Models;
+	using Microsoft.AspNet.Identity.EntityFramework;
 
     public interface IDrinkAndRateData
     {
@@ -24,7 +25,8 @@
 
         IRepository<UsersEvents> UsersEvents { get; }
 
-        IRepository<AppUser> Users { get; }
+		IRepository<AppUser> Users { get; }
+		IRepository<IdentityRole> Roles { get; }
 
         int SaveChanges();
     }

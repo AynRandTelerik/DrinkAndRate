@@ -7,27 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DrinkAndRate.Web {
+namespace DrinkAndRate.Web.Admin {
     
     
-    public partial class SiteMaster {
+    public partial class BeersGrid {
         
         /// <summary>
-        /// panelAdminMenu control.
+        /// headerInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelAdminMenu;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl headerInfo;
         
         /// <summary>
-        /// MainContent control.
+        /// gridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.GridView gridView;
+        
+        /// <summary>
+        /// EntityDataSourceProvider control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.AspNet.EntityDataSource.EntityDataSource EntityDataSourceProvider;
     }
 }

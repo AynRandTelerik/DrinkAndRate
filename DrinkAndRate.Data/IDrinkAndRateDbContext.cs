@@ -25,7 +25,8 @@
 
         IDbSet<Image> Images { get; set; }
 
-        IDbSet<UsersEvents> UsersEvents { get; set; }
+		IDbSet<UsersEvents> UsersEvents { get; set; }
+		IDbSet<AppUser> Users { get; set; }
 
         int SaveChanges();
 
