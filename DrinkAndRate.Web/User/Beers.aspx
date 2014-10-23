@@ -3,8 +3,6 @@
 <%@ Register TagPrefix="uc" TagName="BeerGrid" Src="~/Controls/BeerGrid.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <br/>
-
     <asp:UpdatePanel ID="UpdataPanelBeer" runat="server">
         <ContentTemplate>
             <asp:Panel runat="server" Visible="false" CssClass="panel panel-warning" ID="FilterContainer">

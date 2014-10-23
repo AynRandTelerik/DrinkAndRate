@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Events" MasterPageFile="~/Site.Master" CodeBehind="Events.aspx.cs" Inherits="DrinkAndRate.Web.User.Events" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <br />
     <asp:UpdatePanel ID="UpdataPanelBeer" runat="server">
         <ContentTemplate>
             <asp:Panel runat="server" Visible="false" CssClass="panel panel-warning" ID="FilterContainer">

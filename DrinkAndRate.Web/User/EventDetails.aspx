@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" Title="Event Details" MasterPageFile="~/Site.Master" CodeBehind="EventDetails.aspx.cs" Inherits="DrinkAndRate.Web.User.EventDetails" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <br />
     <div class="row">
         <div class="col-md-6">
             <h1 id="EventName" class="text-center" runat="server"></h1>

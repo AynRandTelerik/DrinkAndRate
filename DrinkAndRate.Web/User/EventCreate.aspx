@@ -3,7 +3,6 @@
 <%@ Register TagPrefix="uc" TagName="FileUpload" Src="~/Controls/FileUpload.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <br />
     <fieldset class="form-horizontal">
         <legend class="text-center alert alert-dismissable alert-success">Please provide information about the event:</legend>
         <asp:Panel ID="DivLabelErrorMessage" runat="server" Visible="false">
