@@ -6,7 +6,7 @@
         <div class="form-group">
             <label for="Beers" class="col-lg-2 control-label">Beer:</label>
             <div class="col-lg-10">
-                <asp:DropDownList ID="Beers" CssClass="form-control" DataTextField="Name" DataValueField="Id" runat="server">
+                <asp:DropDownList ID="Beers" CssClass="form-control" DataTextField="BrandAndName" DataValueField="Id" runat="server">
                 </asp:DropDownList>
             </div>
         </div>

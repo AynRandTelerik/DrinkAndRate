@@ -80,7 +80,7 @@ namespace DrinkAndRate.Web.User
                 {
                     ArticleId = article.ID,
                     ArticleTitle = article.Title,
-                    Beer = article.Beer.Name,
+					Beer = article.Beer.Brand.Name + " " + article.Beer.Name,
                     Content = article.Content,
                     Creator = article.Creator.UserName
                 };

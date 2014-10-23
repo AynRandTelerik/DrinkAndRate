@@ -54,7 +54,13 @@ namespace DrinkAndRate.Web.User
         }
         private void LoadData()
         {
-            var allBeers = this.data.Beers.All().ToList();
+			var allBeers = this.data.Beers.All()
+				.Select(item => new
+				{
+					ID = item.ID,
+					BrandAndName = item.Brand.Name + " " + item.Name
+				})
+				.ToList();
 
             this.Beers.DataSource = allBeers;
             this.Beers.DataBind();
