@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+	<!-- Public -->
 	<siteMapNode url="~/" title="Drink And Rate"  description="Drink And Rate">
+		<!-- LoggedIn -->
 		<siteMapNode url="~/User/Beers"			title="Beers"  description="">
 			<siteMapNode url="~/User/BeerCreate"			title="Create Beer"  description="" />
 			<siteMapNode url="~/User/BeerDetails"			title="Beer Details"  description="" />
@@ -16,6 +18,7 @@
 		<siteMapNode url="~/User/Charts"	title="Charts"  description="">
 			<siteMapNode url="~/User/ChartDetails"			title="Chart Details"  description="" />
 		</siteMapNode>
+		<!-- Admin Area -->
 		<siteMapNode url="~/Admin/UsersGrid"			title="Users Grid"  description="" />
 		<siteMapNode url="~/Admin/BeersGrid"			title="Beers Grid"  description="" />
 		<siteMapNode url="~/Admin/ArticlesGrid"		title="Articles Grid"  description="" />

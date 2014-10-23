@@ -11,10 +11,13 @@ namespace DrinkAndRate.Web
 {
 	public partial class SiteMaster : MasterPage
 	{
+		public const string BEER_CACHE_KEY = "BeersCache";
+
 		private const string AntiXsrfTokenKey = "__AntiXsrfToken";
 		private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
 		private string _antiXsrfTokenValue;
-        private IDrinkAndRateData data;
+		private IDrinkAndRateData data;
+
 		protected void Page_Init(object sender, EventArgs e)
 		{
 			// The code below helps to protect against XSRF attacks
@@ -68,10 +71,10 @@ namespace DrinkAndRate.Web
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-            var dbContext = new DrinkAndRateDbContext();
-            data = new DrinkAndRateData(dbContext);
-			
-            if (Context.User.Identity.IsAuthenticated)
+			var dbContext = new DrinkAndRateDbContext();
+			data = new DrinkAndRateData(dbContext);
+
+			if (Context.User.Identity.IsAuthenticated)
 			{
 				var user = data.Users.All()
 					.Single(x => x.UserName == this.Context.User.Identity.Name);
@@ -84,7 +87,7 @@ namespace DrinkAndRate.Web
 				}
 			}
 
-            CacheBeerInfo();
+			CacheBeerInfo();
 		}
 
 		protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
@@ -92,20 +95,13 @@ namespace DrinkAndRate.Web
 			Context.GetOwinContext().Authentication.SignOut();
 		}
 
-        private void CacheBeerInfo()
-        {
-            if (this.Cache["beers"] == null)
-            {
-                var beersCollection = data.Beers.All()
-                    .ToList();
-
-                Cache.Insert("beers", beersCollection, null, DateTime.Now.AddMinutes(10), Cache.NoSlidingExpiration, CacheItemPriority.Default, OnRemoveCallback);
-            }
-        }
-
-        private void OnRemoveCallback(string key, object value, CacheItemRemovedReason reason)
-        {
-            CacheBeerInfo();
-        }
+		private void CacheBeerInfo()
+		{
+			if (this.Cache[BEER_CACHE_KEY] == null)
+			{
+				var beersCollection = data.Beers.All().ToList();
+				Cache.Insert(BEER_CACHE_KEY, beersCollection, null, DateTime.Now.AddMinutes(5), Cache.NoSlidingExpiration, CacheItemPriority.Default, (k, v, r) => CacheBeerInfo());
+			}
+		}
 	}
 }
