@@ -69,7 +69,7 @@
             }
             else
             {
-                throw new InvalidOperationException("Error occure while saving the element!");
+                throw new InvalidOperationException("Error occured while saving the element!");
             }
         }
     }

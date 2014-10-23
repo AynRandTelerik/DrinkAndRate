@@ -182,6 +182,7 @@
                                                                         <div class="col-lg-12">
                                                                             <asp:TextBox runat="server" ID="TextBoxAddComment" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
                                                                         </div>
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldCommentContent" ControlToValidate="TextBoxAddComment" CssClass="label label-danger pull-right" ErrorMessage="Content is required!" Display="Dynamic" SetFocusOnError="true" runat="server"></asp:RequiredFieldValidator>
                                                                     </div>
                                                                 </div>
                                                             </div>
