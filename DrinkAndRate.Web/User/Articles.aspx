@@ -17,6 +17,11 @@
                             <a href="/User/ArticleInfo.aspx?articleID=<%#:Item.ArticleId %>" class="btn btn-primary pull-right">View Details...</a>
                         </div>
                 </ItemTemplate>
+                <EmptyDataTemplate>
+                    <p class="truncate">
+                        No articles yet.
+                    </p>
+                </EmptyDataTemplate>
             </asp:ListView>
         </div>
         <div class="col-md-4">
