@@ -35,7 +35,7 @@
 
 		private void LoadData()
 		{
-			var allBeers = !this.User.Identity.IsAuthenticated ? this.AllBeers : data.Beers.All();
+			var allBeers = !this.User.Identity.IsAuthenticated && this.AllBeers != null ? this.AllBeers : data.Beers.All();
 
 			this.UserControlBeerGrid.BeerList.DataSource = allBeers
 				.OrderByDescending(beer => beer.CreatedOn)

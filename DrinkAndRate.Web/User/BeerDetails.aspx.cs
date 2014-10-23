@@ -47,57 +47,63 @@ namespace DrinkAndRate.Web.User
 
         private void LoadData()
         {
-            var beerData = data.Beers.All().FirstOrDefault(b => b.ID == beerId);
-            if (beerData == null)
-            {
-                Response.Redirect("~/User/Beers");
-            }
-
-            if (beerData.CreatorID == this.currentUserId)
-            {
-                this.EditBeerContainer.Visible = true;
-                this.RemoveBeerContainer.Visible = true;
-            }
-
-            this.BeerName.InnerText = beerData.Name;
-            this.ImageContainer.BackImageUrl = beerData.Images.Count > 0 ? beerData.Images.FirstOrDefault().Path : "../Images/default.png";
-            this.Alco.InnerText = string.Format("Alco: {0} %", beerData.AlchoholPercentage != null ? beerData.AlchoholPercentage.Value.ToString("0.0") : "N/A");
-            this.CategoryName.InnerText = beerData.Category.Name;
-            this.Description.InnerText = beerData.Description;
-            this.BrandName.InnerText = beerData.Brand.Name;
-            this.BrandCountry.InnerText = beerData.Brand.Country.Name;
-            this.BrandEstablished.InnerText = beerData.Brand.Established.ToShortDateString();
-            this.Creator.InnerText = "Creator: " + beerData.Creator.UserName;
-            this.CreatedOn.InnerText = beerData.CreatedOn.ToString();
-
-            int allRatings = 0;
-            var currentBeerRating = 0;
-            foreach (var beerRating in beerData.BeerRatings)
-            {
-                allRatings += beerRating.Rating;
-            }
-
-            if (beerData.BeerRatings.Count > 0)
-            {
-                currentBeerRating = allRatings / beerData.BeerRatings.Count;
-            }
-
-            this.BeerRatings.InnerText = currentBeerRating + " / " + beerData.BeerRatings.Count + " reviews";
-
-            //Edit
-            this.BeerNameEditText.Text = beerData.Name;
-
-            this.AlcoEditText.Text = string.Format("Alco: {0} %", beerData.AlchoholPercentage != null ? beerData.AlchoholPercentage.Value.ToString("0.0") : "0");
-            this.DescriptionEditText.Text = beerData.Description;
-
-            var allCategories = this.data.Categories.All().ToList();
-            this.CategoriesEditDropDown.DataSource = allCategories;
-            this.CategoriesEditDropDown.DataBind();
-
-            var allBrands = this.data.Brands.All().ToList();
-            this.BrandNameEditDropDown.DataSource = allBrands;
-            this.BrandNameEditDropDown.DataBind();
+			LoadBeerData();
+			LoadListViewComments();
         }
+
+		private void LoadBeerData()
+		{
+			var beerData = data.Beers.All().FirstOrDefault(b => b.ID == beerId);
+			if (beerData == null)
+			{
+				Response.Redirect("~/User/Beers");
+			}
+
+			if (beerData.CreatorID == this.currentUserId)
+			{
+				this.EditBeerContainer.Visible = true;
+				this.RemoveBeerContainer.Visible = true;
+			}
+
+			this.BeerName.InnerText = beerData.Name;
+			this.ImageContainer.BackImageUrl = beerData.Images.Count > 0 ? beerData.Images.FirstOrDefault().Path : "../Images/default.png";
+			this.Alco.InnerText = string.Format("Alco: {0} %", beerData.AlchoholPercentage != null ? beerData.AlchoholPercentage.Value.ToString("0.0") : "N/A");
+			this.CategoryName.InnerText = beerData.Category.Name;
+			this.Description.InnerText = beerData.Description;
+			this.BrandName.InnerText = beerData.Brand.Name;
+			this.BrandCountry.InnerText = beerData.Brand.Country.Name;
+			this.BrandEstablished.InnerText = beerData.Brand.Established.ToShortDateString();
+			this.Creator.InnerText = "Creator: " + beerData.Creator.UserName;
+			this.CreatedOn.InnerText = beerData.CreatedOn.ToString();
+
+			int allRatings = 0;
+			var currentBeerRating = 0;
+			foreach (var beerRating in beerData.BeerRatings)
+			{
+				allRatings += beerRating.Rating;
+			}
+
+			if (beerData.BeerRatings.Count > 0)
+			{
+				currentBeerRating = allRatings / beerData.BeerRatings.Count;
+			}
+
+			this.BeerRatings.InnerText = currentBeerRating + " / " + beerData.BeerRatings.Count + " reviews";
+
+			//Edit
+			this.BeerNameEditText.Text = beerData.Name;
+
+            this.AlcoEditText.Text = beerData.AlchoholPercentage != null ? beerData.AlchoholPercentage.Value.ToString("0.0") : "0";
+			this.DescriptionEditText.Text = beerData.Description;
+
+			var allCategories = this.data.Categories.All().ToList();
+			this.CategoriesEditDropDown.DataSource = allCategories;
+			this.CategoriesEditDropDown.DataBind();
+
+			var allBrands = this.data.Brands.All().ToList();
+			this.BrandNameEditDropDown.DataSource = allBrands;
+			this.BrandNameEditDropDown.DataBind();
+		}
 
         private void SetPageTitle(int ID)
         {
@@ -123,7 +129,8 @@ namespace DrinkAndRate.Web.User
             this.data.Beers.Update(beerData);
             this.data.SaveChanges();
 
-            this.Response.Redirect(this.Request.RawUrl);
+			LoadBeerData();
+			backButton_Click(null, null);
         }
 
         protected void backButton_Click(object sender, EventArgs e)
@@ -140,23 +147,16 @@ namespace DrinkAndRate.Web.User
             this.Response.Redirect("~/User/Beers");
         }
 
-        // The return type can be changed to IEnumerable, however to support
-        // paging and sorting, the following parameters must be added:
-        //     int maximumRows
-        //     int startRowIndex
-        //     out int totalRowCount
-        //     string sortByExpression
-        public IQueryable<DrinkAndRate.Web.Models.CommentsViewModel> ListViewComments_GetData()
+        public void LoadListViewComments()
         {
-            var currentBeerComments = data.Comments.All().Where(c => c.BeerID == beerId)
+            this.ListViewComments.DataSource = data.Comments.All().Where(c => c.BeerID == beerId)
                 .Select(x => new CommentsViewModel
                     {
                         Content = x.Content,
                         CreatedOn = x.CreatedOn,
                         CreatorName = x.Creator.UserName,
-                    });
-
-            return currentBeerComments;
+                    }).OrderByDescending(item => item.CreatedOn).ToArray();
+			this.ListViewComments.DataBind();
         }
 
         protected void ButtonAddNewComment_Click(object sender, EventArgs e)
@@ -182,7 +182,9 @@ namespace DrinkAndRate.Web.User
             this.data.Comments.Add(newComment);
             this.data.SaveChanges();
 
-            Response.Redirect("~/User/BeerDetails.aspx?id=" + beerId);
+			LoadListViewComments();
+			this.TextBoxAddComment.Text = string.Empty;
+			backButtonComments_Click(null, null);
         }
 
         protected void Star_Select(object sender, EventArgs e)
@@ -216,7 +218,7 @@ namespace DrinkAndRate.Web.User
 
             this.data.SaveChanges();
 
-            Response.Redirect("~/User/BeerDetails.aspx?id=" + beerId);
+			LoadBeerData();
         }
     }
 }
