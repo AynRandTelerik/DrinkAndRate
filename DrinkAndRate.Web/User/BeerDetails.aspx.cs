@@ -92,7 +92,7 @@ namespace DrinkAndRate.Web.User
             }
 
             this.BeerName.InnerText = beerData.Name;
-            this.ImageContainer.BackImageUrl = beerData.Images.FirstOrDefault().Path; //beerData.Images.FirstOrDefault().Path == string.Empty ? beerData.Images.FirstOrDefault().Path : "/Images/default.png";
+            this.ImageContainer.BackImageUrl = beerData.Images.Count > 0 ? beerData.Images.FirstOrDefault().Path : "../Images/default.png";
             this.Alco.InnerText = "Alco: " + beerData.AlchoholPercentage.ToString() + "%";
             this.CategoryName.InnerText = beerData.Category.Name;
             this.BeerRatings.InnerText = beerData.BeerRatings.Count + " reviews";
@@ -185,6 +185,22 @@ namespace DrinkAndRate.Web.User
         protected void backButtonComments_Click(object sender, EventArgs e)
         {
             this.PanelAddNewCommentData.Visible = false;
+        }
+
+        protected void ButtonAddCommentData_Click(object sender, EventArgs e)
+        {
+            var newComment = new Comment
+            {
+                Content = this.TextBoxAddComment.Text,
+                CreatedOn = DateTime.Now,
+                CreatorID = currentUserId,
+                BeerID = beerId
+            };
+
+            this.data.Comments.Add(newComment);
+            this.data.SaveChanges();
+
+            Response.Redirect("~/User/BeerDetails.aspx?id=" + beerId);
         }
     }
 }

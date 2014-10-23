@@ -161,7 +161,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <div class="col-lg-10">
+                                                        <div class="col-lg-12">
                                                             <asp:TextBox runat="server" ID="TextBoxAddComment" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
                                                         </div>
                                                     </div>
@@ -171,10 +171,10 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <div class="col-lg-10 col-lg-offset-2">
+                                                    <div class="col-lg-12">
                                                         <br />
                                                         <asp:Button ID="backButtonComments" runat="server" CssClass="btn btn-danger" Text="Cancel" OnClick="backButtonComments_Click"></asp:Button>
-                                                        <asp:Button ID="ButtonAddCommentData" CssClass="btn btn-primary" runat="server" Text="Add Comment"></asp:Button>
+                                                        <asp:Button ID="ButtonAddCommentData" CssClass="btn btn-primary" runat="server" Text="Add Comment" OnClick="ButtonAddCommentData_Click"></asp:Button>
 
                                                     </div>
                                                 </div>
