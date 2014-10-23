@@ -133,7 +133,7 @@ namespace DrinkAndRate.Web.User
             var beerData = data.Beers.All().FirstOrDefault(b => b.ID == beerId);
 
             beerData.Name = this.BeerNameEditText.Text;
-            beerData.AlchoholPercentage = int.Parse(this.AlcoEditText.Text);
+            beerData.AlchoholPercentage = float.Parse(this.AlcoEditText.Text);
             beerData.Description = this.DescriptionEditText.Text;
             beerData.CategoryID = int.Parse(this.CategoriesEditDropDown.SelectedValue);
             beerData.BrandID = int.Parse(this.BrandNameEditDropDown.SelectedValue);

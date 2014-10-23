@@ -74,7 +74,7 @@
         <div class="form-group">
             <label for="alcoholPercentage" class="col-lg-2 control-label">Alcohol Percentage:</label>
             <div class="input-group col-lg-10">
-                <input type="number" id="alcoholPercentage" min="1" max="100" step="1" runat="server" class="form-control" />
+                <input type="number" id="alcoholPercentage" min="0.1" max="100" step="0.1" runat="server" class="form-control" />
                 <span class="input-group-addon">%</span>
             </div>
         </div>
