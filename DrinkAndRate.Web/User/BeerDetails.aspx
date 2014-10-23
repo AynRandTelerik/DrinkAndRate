@@ -16,15 +16,15 @@
                             <h4 id="CategoryName" runat="server"></h4>
                             <h4 id="Alco" runat="server"></h4>
                             <hr />
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
-                            <p id="BeerRatings" runat="server">
-                            </p>
+                            <h3 id="BeerRatings" runat="server"></h3>
+                            <fieldset class="rating" runat="server">
+                                <input type="radio" id="star5" runat="server" name="BeerRating" value="5" onserverchange="Star_Select"/><label for="star5" title="Rocks!">5 stars</label>
+                                <input type="radio" id="star4" runat="server" name="BeerRating" value="4" onserverchange="Star_Select"/><label for="star4" title="Pretty good">4 stars</label>
+                                <input type="radio" id="star3" runat="server" name="BeerRating" value="3" onserverchange="Star_Select"/><label for="star3" title="Meh">3 stars</label>
+                                <input type="radio" id="star2" runat="server" name="BeerRating" value="2" onserverchange="Star_Select"/><label for="star2" title="Kinda bad">2 stars</label>
+                                <input type="radio" id="star1" runat="server" name="BeerRating" value="1" onserverchange="Star_Select"/><label for="star1" title="Sucks big time">1 star</label>
+                            </fieldset>
+                            <asp:Button ID="ButtonVote" CssClass="btn btn-primary" runat="server" Text="Vote" OnClick="Star_Select" />
                         </div>
                         <div class="text-left panel panel-default">
                             <div class="panel-body">

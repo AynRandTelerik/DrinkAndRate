@@ -16,6 +16,7 @@ namespace DrinkAndRate.Web.User
         private IDrinkAndRateData data;
         private int beerId;
         private string currentUserId;
+        private int rating;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,34 +49,6 @@ namespace DrinkAndRate.Web.User
             }
         }
 
-        //// The id parameter should match the DataKeyNames value set on the control
-        //// or be decorated with a value provider attribute, e.g. [QueryString]int id
-        //public IQueryable<BeerDetailsViewModel> DetailsViewBeer_GetItem([QueryString("id")] int? id)
-        //{
-        //    var currentBeer = data.Beers.All().Where(b => b.ID == id)   //TODO
-        //            .Select(x => new BeerDetailsViewModel
-        //            {
-        //                Name = x.Name,
-        //                AlchoholPercentage = x.AlchoholPercentage,
-        //                BeerRatings = x.BeerRatings.Count,
-        //                BrandName = x.Brand.Name,
-        //                BrandCountry = x.Brand.Country.Name,
-        //                BrandEstablished = x.Brand.Established,
-        //                CategoryName = x.Category.Name,
-        //                CreatedOn = x.CreatedOn,
-        //                CreatorName = x.Creator.UserName,
-        //                Description = x.Description,
-        //                ID = x.ID,
-        //                Image = x.Images.FirstOrDefault(),
-        //                Comments = x.Comments,
-        //                Articles = x.Articles,
-        //                Images = x.Images
-
-        //            });
-
-        //    return currentBeer;
-        //}
-
         private void LoadData()
         {
             var beerData = data.Beers.All().FirstOrDefault(b => b.ID == beerId);
@@ -94,15 +67,28 @@ namespace DrinkAndRate.Web.User
             this.BeerName.InnerText = beerData.Name;
             this.ImageContainer.BackImageUrl = beerData.Images.Count > 0 ? beerData.Images.FirstOrDefault().Path : "../Images/default.png";
             this.Alco.InnerText = "Alco: " + beerData.AlchoholPercentage.ToString() + "%";
-            this.CategoryName.InnerText = beerData.Category.Name;
-            this.BeerRatings.InnerText = beerData.BeerRatings.Count + " reviews";
+            this.CategoryName.InnerText = beerData.Category.Name;            
             this.Description.InnerText = beerData.Description;
             this.BrandName.InnerText = beerData.Brand.Name;
             this.BrandCountry.InnerText = beerData.Brand.Country.Name;
             this.BrandEstablished.InnerText = beerData.Brand.Established.ToShortDateString();
             this.Creator.InnerText = "Creator: " + beerData.Creator.UserName;
             this.CreatedOn.InnerText = beerData.CreatedOn.ToString();
-            
+
+            int allRatings = 0;
+            var currentBeerRating = 0;
+            foreach (var beerRating in beerData.BeerRatings)
+            {
+                allRatings += beerRating.Rating;
+            }
+
+            if (beerData.BeerRatings.Count > 0)
+            {
+                currentBeerRating = allRatings / beerData.BeerRatings.Count;
+            }
+
+            this.BeerRatings.InnerText = currentBeerRating + " / " + beerData.BeerRatings.Count + " reviews";
+
             //Edit
             this.BeerNameEditText.Text = beerData.Name;
             this.AlcoEditText.Text = beerData.AlchoholPercentage.ToString();
@@ -133,7 +119,7 @@ namespace DrinkAndRate.Web.User
             var beerData = data.Beers.All().FirstOrDefault(b => b.ID == beerId);
 
             beerData.Name = this.BeerNameEditText.Text;
-			beerData.AlchoholPercentage = double.Parse(this.AlcoEditText.Text);
+            beerData.AlchoholPercentage = int.Parse(this.AlcoEditText.Text);
             beerData.Description = this.DescriptionEditText.Text;
             beerData.CategoryID = int.Parse(this.CategoriesEditDropDown.SelectedValue);
             beerData.BrandID = int.Parse(this.BrandNameEditDropDown.SelectedValue);
@@ -198,6 +184,27 @@ namespace DrinkAndRate.Web.User
             };
 
             this.data.Comments.Add(newComment);
+            this.data.SaveChanges();
+
+            Response.Redirect("~/User/BeerDetails.aspx?id=" + beerId);
+        }
+
+        protected void Star_Select(object sender, EventArgs e)
+        {
+            if (Request.Form["BeerRating"] != null)
+            {
+                rating = int.Parse(Request.Form["BeerRating"]);
+            }
+
+            var newRating = new BeerRating
+            {
+                BeerID = beerId,
+                UserID = currentUserId,
+                RatedOn = DateTime.Now,
+                Rating = rating
+            };
+
+            this.data.BeerRatings.Add(newRating);
             this.data.SaveChanges();
 
             Response.Redirect("~/User/BeerDetails.aspx?id=" + beerId);
