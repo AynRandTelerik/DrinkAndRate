@@ -14,11 +14,14 @@ namespace DrinkAndRate.Web.User
     {
         private IDrinkAndRateData data;
 
-        protected void Page_Load(object sender, EventArgs e)
+        public ArticleCreate()
         {
             var dbContext = new DrinkAndRateDbContext();
             this.data = new DrinkAndRateData(dbContext);
+        }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
             if (!IsPostBack)
             {
                 LoadData();

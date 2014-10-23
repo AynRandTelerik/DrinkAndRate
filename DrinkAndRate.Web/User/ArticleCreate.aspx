@@ -14,13 +14,14 @@
             <div class="col-lg-10">
                 <input type="text" runat="server" class="form-control" id="ArticleTitle" placeholder="Enter title." />
             </div>
-            <asp:Requiredfieldvalidator id="Requiredfieldname" controltovalidate="ArticleTitle" cssclass="label label-danger pull-right" errormessage="title is required!" display="dynamic" setfocusonerror="true" runat="server"></asp:Requiredfieldvalidator>
+            <asp:Requiredfieldvalidator id="Requiredfieldname" controltovalidate="ArticleTitle" cssclass="label label-danger pull-right" errormessage="Title is required!" display="dynamic" setfocusonerror="true" runat="server"></asp:Requiredfieldvalidator>
         </div>
         <div class="form-group">
             <label for="Content" class="col-lg-2 control-label">Content:</label>
             <div class="col-lg-10">
                 <textarea class="form-control" rows="3" id="Content" runat="server" placeholder="Provide content for the article."></textarea>
             </div>
+            <asp:Requiredfieldvalidator id="Requiredfieldcontent" controltovalidate="Content" cssclass="label label-danger pull-right" errormessage="Content is required!" display="dynamic" setfocusonerror="true" runat="server"></asp:Requiredfieldvalidator>
         </div>
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">

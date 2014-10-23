@@ -64,6 +64,11 @@ namespace DrinkAndRate.Web.User
                 article = this.data.Articles.All()
                     .SingleOrDefault(a => a.ID == articleId);
 
+                if (article == null)
+                {
+                    this.Response.Redirect("~/User/Articles");
+                }
+
                 articleModel = new ArticleViewModel
                 {
                     ArticleId = article.ID,
