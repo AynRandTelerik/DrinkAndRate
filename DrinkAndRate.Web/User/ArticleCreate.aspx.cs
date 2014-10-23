@@ -38,7 +38,6 @@ namespace DrinkAndRate.Web.User
                     CreatorID = currentUserId
                 };
 
-
                 this.data.Articles.Add(newArticle);
                 this.data.SaveChanges();
 

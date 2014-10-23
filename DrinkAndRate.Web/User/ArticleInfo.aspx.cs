@@ -17,16 +17,23 @@ namespace DrinkAndRate.Web.User
         public ArticleViewModel articleModel;
         public void SaveButton_Command(object sender, CommandEventArgs e)
         {
-            this.PanelView.Visible = true;
-            this.PanelEdit.Visible = false;
+            if (Page.IsValid)
+            {
+                this.PanelView.Visible = true;
+                this.PanelEdit.Visible = false;
 
-            article.Title = this.TextBoxArticleTitle.Text;
-            article.Content = this.TextBoxArticleContent.Text;
+                article.Title = this.TextBoxArticleTitle.Text;
+                article.Content = this.TextBoxArticleContent.Text;
 
-            this.data.Articles.Update(article);
-            this.data.SaveChanges();
+                this.data.Articles.Update(article);
+                this.data.SaveChanges();
 
-            Response.Redirect(Request.RawUrl);
+                Response.Redirect(Request.RawUrl);
+            }
+            else
+            {
+                throw new InvalidOperationException("Error occure while saving the element!");
+            }
         }
 
         public void EditButton_Command(object sender, CommandEventArgs e)

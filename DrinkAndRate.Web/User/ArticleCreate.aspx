@@ -25,7 +25,7 @@
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
                 <a href="~/User/Articles" runat="server" class="btn btn-danger">Cancel</a>
-                <asp:Button ID="Submit" CssClass="btn btn-primary" runat="server" OnClick="Submit_Click" Text="Submit"></asp:Button>
+                <asp:Button ID="Submit" CssClass="btn btn-info" runat="server" OnClick="Submit_Click" Text="Submit"></asp:Button>
             </div>
         </div>
     </fieldset>

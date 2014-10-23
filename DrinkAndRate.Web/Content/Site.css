@@ -129,3 +129,9 @@ input[type="select"] {
     padding-top: 2%;
     padding-bottom: 2%;
 }
+
+.article-style {
+    padding: 5px;
+    margin-left: 5px;
+}
+
