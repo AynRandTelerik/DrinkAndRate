@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Articles" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Articles.aspx.cs" Inherits="DrinkAndRate.Web.User.Articles" %>
 <asp:Content ID="AllArticles" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
+    <h2><%: Title %></h2>
     <div class="row">
         <div class="col-md-8">
             <asp:ListView ID="ListViewArticles" runat="server" ItemType="DrinkAndRate.Web.Models.ArticleViewModel">

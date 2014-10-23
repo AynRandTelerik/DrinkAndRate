@@ -11,6 +11,7 @@
             </div>
         </div>
         <asp:LinkButton ID="EditButton" Visible="false" CssClass="btn btn-success" runat="server" CommandArgument="ID" OnCommand="EditButton_Command" Text="Edit"></asp:LinkButton>
+        <asp:LinkButton ID="DeleteButton" Visible="false" CssClass="btn btn-danger" runat="server" CommandArgument="ID" OnCommand="DeleteButton_Command" Text="Delete"></asp:LinkButton>
     </asp:Panel>
     <asp:Panel ID="PanelEdit" runat="server" Visible="false">
         <h3>Edit article</h3>

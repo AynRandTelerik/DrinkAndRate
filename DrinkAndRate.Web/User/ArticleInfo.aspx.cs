@@ -22,6 +22,13 @@ namespace DrinkAndRate.Web.User
             this.data = new DrinkAndRateData(dbContext);
         }
 
+        public void DeleteButton_Command(object sender, CommandEventArgs e)
+        {
+            this.data.Articles.Delete(article);
+            this.data.SaveChanges();
+            this.Response.Redirect("~/User/Articles");
+        }
+
         public void SaveButton_Command(object sender, CommandEventArgs e)
         {
             if (Page.IsValid)
@@ -83,6 +90,7 @@ namespace DrinkAndRate.Web.User
                 if (loggedUser == article.Creator.UserName)
                 {
                     this.EditButton.Visible = true;
+                    this.DeleteButton.Visible = true;
                 }
 
                 if (!IsPostBack)
