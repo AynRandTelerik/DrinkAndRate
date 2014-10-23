@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ArticleInfo.aspx.cs" Inherits="DrinkAndRate.Web.User.ArticleInfo" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Panel ID="PanelView" runat="server" Visible="true">
-        <div class="col-md-offset-1 head-margin">
-            <h2><%#: "Title: " + this.articleModel.ArticleTitle %></h2>
+        <div class="head-margin">
+            <h2 class="text-center alert alert-dismissable alert-success"><%#: "Title: " + this.articleModel.ArticleTitle %></h2>
         </div>
         <div class="panel panel-default">
             <div class="panel-heading"><%#: "Beer: " + this.articleModel.Beer  %></div>

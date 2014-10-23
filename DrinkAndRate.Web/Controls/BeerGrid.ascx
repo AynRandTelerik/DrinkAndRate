@@ -37,7 +37,7 @@
                             <%#: Item.CreatedOn %>
                         </p>
                     </div>
-                     <a href='<%#: "~/User/BeerDetails.aspx?id=" + Item.ID %>' runat="server" class="btn btn-success btn-block">View</a>
+                    <a href='<%#: "~/User/BeerDetails.aspx?id=" + Item.ID %>' runat="server" class="btn btn-success btn-block">View</a>
                 </div>
             </div>
         </ItemTemplate>
@@ -54,4 +54,3 @@
         </asp:DataPager>
     </div>
 </asp:Panel>
-

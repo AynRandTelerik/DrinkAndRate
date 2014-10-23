@@ -12,6 +12,8 @@
             set;
         }
 
+        public bool IsNotAuthenticated { get; set; }
+
         public bool HasPaging { get; set; }
 
         protected void Page_Init(object sender, EventArgs e)
@@ -22,6 +24,8 @@
             {
                 this.BeersDataPagingPanel.Visible = true;
             }
+
+            
         }
     }
 }
