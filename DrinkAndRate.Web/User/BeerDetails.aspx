@@ -24,20 +24,20 @@
 												<h3 id="BeerRatings" runat="server"></h3>
 
 												<fieldset class="rating" runat="server">
+                                                    <asp:RadioButton ID="star_5" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
 													<asp:Label runat="server" AssociatedControlID="star_5" title="Rocks!">5 stars</asp:Label>
-													<asp:RadioButton ID="star_5" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
-
+													
+                                                    <asp:RadioButton ID="star_4" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
 													<asp:Label runat="server" AssociatedControlID="star_4" title="Pretty good">4 stars</asp:Label>
-													<asp:RadioButton ID="star_4" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
-
+													
+                                                    <asp:RadioButton ID="star_3" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
 													<asp:Label runat="server" AssociatedControlID="star_3" title="Meh">3 stars</asp:Label>
-													<asp:RadioButton ID="star_3" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
-
+													
+                                                    <asp:RadioButton ID="star_2" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
 													<asp:Label runat="server" AssociatedControlID="star_2" title="Kinda bad">2 stars</asp:Label>
-													<asp:RadioButton ID="star_2" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
-
+													
+                                                    <asp:RadioButton ID="star_1" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
 													<asp:Label runat="server" AssociatedControlID="star_1" title="Sucks big time">1 stars</asp:Label>
-													<asp:RadioButton ID="star_1" ClientIDMode="Static" runat="server" GroupName="BeerRating" AutoPostBack="true" OnCheckedChanged="Star_Select" />
 												</fieldset>
 											</div>
 											<div class="text-left panel panel-default">
