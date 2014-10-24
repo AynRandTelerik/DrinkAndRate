@@ -141,6 +141,27 @@ namespace DrinkAndRate.Web.User
         protected void RemoveBeerButton_Click(object sender, EventArgs e)
         {
             var currentBeer = this.data.Beers.Find(this.beerId);
+
+            if (currentBeer.Images.Any())
+            {
+                this.data.Images.Delete(currentBeer.Images.FirstOrDefault());
+            }
+
+            foreach (var comment in currentBeer.Comments.ToList())
+            {
+                this.data.Comments.Delete(comment);
+            }
+
+            foreach (var rating in currentBeer.BeerRatings.ToList())
+            {
+                this.data.BeerRatings.Delete(rating);
+            }
+
+            foreach (var article in currentBeer.Articles.ToList())
+            {
+                this.data.Articles.Delete(article);
+            }
+
             this.data.Beers.Delete(currentBeer);
             this.data.SaveChanges();
 
