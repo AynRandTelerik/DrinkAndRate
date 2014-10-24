@@ -1,6 +1,7 @@
 ﻿namespace DrinkAndRate.Web.Controls
 {
     using System;
+    using System.Web;
     using System.Web.UI;
     using System.Web.UI.WebControls;
 
@@ -12,7 +13,7 @@
             set;
         }
 
-        public bool IsNotAuthenticated { get; set; }
+        public bool IsAuthenticated { get; set; }
 
         public bool HasPaging { get; set; }
 
@@ -25,7 +26,7 @@
                 this.BeersDataPagingPanel.Visible = true;
             }
 
-            
+            this.IsAuthenticated = HttpContext.Current.User.Identity.IsAuthenticated;
         }
     }
 }

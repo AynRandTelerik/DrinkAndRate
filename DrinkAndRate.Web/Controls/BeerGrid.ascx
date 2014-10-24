@@ -37,7 +37,14 @@
                             <%#: Item.CreatedOn %>
                         </p>
                     </div>
+                    <% if (this.IsAuthenticated)
+                       {%>
                     <a href='<%#: "~/User/BeerDetails.aspx?id=" + Item.ID %>' runat="server" class="btn btn-success btn-block">View</a>
+                    <% }
+                       else
+                       { %>
+                    <a href='<%#: "~/Account/Login.aspx" %>' runat="server" class="btn btn-success btn-block">Login and view more</a>
+                    <% } %>
                 </div>
             </div>
         </ItemTemplate>
