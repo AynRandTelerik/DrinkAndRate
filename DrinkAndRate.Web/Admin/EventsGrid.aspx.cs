@@ -14,5 +14,21 @@
         protected void Page_Load(object sender, EventArgs e)
         {
         }
+
+        protected void gridView_RowDeleting(object sender, System.Web.UI.WebControls.GridViewDeleteEventArgs e)
+        {
+            var eventId = int.Parse(e.Values["ID"].ToString());
+
+            var allUserEvents = this.data.UsersEvents.All()
+                .Where(userEvent => userEvent.EventID == eventId)
+                .ToList();
+
+            foreach (var userEvent in allUserEvents)
+            {
+                this.data.UsersEvents.Delete(userEvent);
+            }
+
+            this.data.SaveChanges();
+        }
     }
 }
