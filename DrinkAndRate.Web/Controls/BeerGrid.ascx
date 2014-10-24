@@ -19,11 +19,53 @@
                     </div>
                     <div class="pull-right additional-beer-info">
                         <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
+                            <asp:PlaceHolder ID="PlaceHolder1" runat="server" Visible='<%# Item.AverageRating == 5 %>'>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </asp:PlaceHolder>
+
+                            <asp:PlaceHolder ID="PlaceHolder3" runat="server" Visible='<%# Item.AverageRating == 4 %>'>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </asp:PlaceHolder>
+
+                            <asp:PlaceHolder ID="PlaceHolder4" runat="server" Visible='<%# Item.AverageRating == 3 %>'>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </asp:PlaceHolder>
+
+                            <asp:PlaceHolder ID="PlaceHolder5" runat="server" Visible='<%# Item.AverageRating == 2 %>'>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </asp:PlaceHolder>
+
+                            <asp:PlaceHolder ID="PlaceHolder6" runat="server" Visible='<%# Item.AverageRating == 1 %>'>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </asp:PlaceHolder>
+
+                            <asp:PlaceHolder ID="PlaceHolder2" runat="server" Visible='<%# Item.AverageRating==null || Item.AverageRating == 0 %>'>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </asp:PlaceHolder>
                         </p>
                         <p>
                             <%#: Item.BeerRatings %> reviews

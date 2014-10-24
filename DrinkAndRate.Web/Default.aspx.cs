@@ -51,9 +51,11 @@
 					CreatorName = x.Creator.UserName,
 					Description = x.Description,
 					ID = x.ID,
-					Image = x.Images.FirstOrDefault()
+					Image = x.Images.FirstOrDefault(),
+                    AverageRating = (int)x.BeerRatings.Average(rating => rating.Rating)
 				})
-				.ToList(); ;
+				.ToList();
+
 			this.UserControlBeerGrid.BeerList.DataBind();
 		}
 	}
