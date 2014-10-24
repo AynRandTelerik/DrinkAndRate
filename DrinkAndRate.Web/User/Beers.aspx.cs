@@ -214,7 +214,7 @@
                 Description = x.Description,
                 ID = x.ID,
                 Image = x.Images.FirstOrDefault(),
-                AverageRating = (int)x.BeerRatings.Average(rating => rating.Rating)
+                AverageRating = (x.BeerRatings.Count == 0 ? 0 : (int)x.BeerRatings.Average(rating => rating.Rating))
             })
             .ToList();
 
