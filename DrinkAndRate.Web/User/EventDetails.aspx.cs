@@ -22,7 +22,11 @@
                 Response.Redirect("~/User/Events");
             }
 
-            this.eventId = int.Parse(queryParameterId);
+            bool isCorrectId = int.TryParse(queryParameterId, out this.eventId);
+            if (!isCorrectId)
+            {
+                Response.Redirect("~/User/Events");
+            }
 
             var dbContext = new DrinkAndRateDbContext();
             data = new DrinkAndRateData(dbContext);

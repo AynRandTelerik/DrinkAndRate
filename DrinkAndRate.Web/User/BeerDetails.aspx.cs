@@ -24,7 +24,11 @@ namespace DrinkAndRate.Web.User
                 Response.Redirect("~/User/Beers");
             }
 
-            this.beerId = int.Parse(queryParameterId);
+            bool isCorrectBeerId = int.TryParse(queryParameterId, out this.beerId);
+            if (!isCorrectBeerId)
+            {
+                Response.Redirect("~/User/Beers");
+            }
 
             var dbContext = new DrinkAndRateDbContext();
             data = new DrinkAndRateData(dbContext);

@@ -54,6 +54,10 @@
                 this.ChartGridView.Columns[3].Visible = false;
                 this.ChartHeaderInfo.InnerText = "Most popular beers ever!";
             }
+            else
+            {
+                Response.Redirect("~/User/Charts");
+            }
 
             this.ChartGridView.DataSource = allBeers.ToList();
             this.ChartGridView.DataBind();
